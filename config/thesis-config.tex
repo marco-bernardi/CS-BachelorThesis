@@ -1,10 +1,10 @@
 % Variables
 \newcommand{\myName}{Marco Bernardi}
 \newcommand{\myTitle}{Generating Realistic Marble Textures using Generative Adversarial Networks}
-\newcommand{\myDegree}{Tesi di laurea}
+\newcommand{\myDegree}{Thesis}
 \newcommand{\myUni}{Università degli Studi di Padova}
-\newcommand{\myFaculty}{Corso di Laurea in Informatica}
-\newcommand{\myDepartment}{Dipartimento di Matematica ``Tullio Levi-Civita''}
+\newcommand{\myFaculty}{Degree Course in Computer Science}
+\newcommand{\myDepartment}{Department of Mathematics ``Tullio Levi-Civita''}
 \newcommand{\profTitle}{Prof.}
 \newcommand{\myProf}{Lamberto Ballan}
 \newcommand{\myLocation}{Padua}
@@ -47,8 +47,8 @@
 \addtocategory{opere}{womak:lean-thinking}
 \addtocategory{web}{site:agile-manifesto}
 
-\defbibheading{opere}{\section*{Riferimenti bibliografici}}
-\defbibheading{web}{\section*{Siti Web consultati}}
+\defbibheading{opere}{\section*{Bibliographical references}}
+\defbibheading{web}{\section*{Websites consulted}}
 
 
 \captionsetup{
@@ -129,10 +129,18 @@
     gi-ral-din
 }
 
-\newcommand{\sectionname}{sezione}
-\addto\captionsitalian{\renewcommand{\figurename}{Figura}
-                       \renewcommand{\tablename}{Tabella}}
-
+\newcommand{\sectionname}{Section}
+\renewcommand{\indexname}{Index}
+\addto\captionsitalian{\renewcommand{\figurename}{Fig.}
+                        \renewcommand{\tablename}{Table}
+                        \renewcommand{\chaptername}{Chapter}
+                        \renewcommand{\indexname}{Index}
+                        }
+%\addto\captionsenglish{%
+%  \renewcommand{\figurename}{Fig.}%
+%  \renewcommand{\tablename}{Table}
+%  \renewcommand{\contentsname}{Table of Contents}%
+%}
 \newcommand{\glsfirstoccur}{\ap{{[g]}}}
 
 \newcommand{\intro}[1]{\emph{\textsf{#1}}}
