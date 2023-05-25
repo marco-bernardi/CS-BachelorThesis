@@ -19,4 +19,38 @@ Si è quindi proceduto a elaborare delle possibili soluzioni per far fronte a ta
 \section{Requisiti e obiettivi}
 
 
-\section{Pianificazione}
+\section{Planning}
+All the activity of the internship has been planned using a specific division of the time in different phases.\\
+\begin{itemize}
+    \item \textbf{First period}: images acquisition;
+    \item \textbf{Second period}: dataset increase, images augmentation;
+    \item \textbf{Third period}: main feature extraction;
+    \item \textbf{Fourth period}: network training;
+    \item \textbf{Fifth period}: results analysis and improvement;
+\end{itemize}
+
+\begin{ganttchart}[%Specs
+    y unit title=0.5cm,
+    y unit chart=0.7cm,
+    vgrid,hgrid,
+    title height=1,
+%     title/.style={fill=none},
+    title label font=\bfseries\footnotesize,
+    bar/.style={fill=blue},
+    bar height=0.7,
+%   progress label text={},
+    group right shift=0,
+    group top shift=0.7,
+    group height=.3,
+    group peaks width={0.2},
+    inline]{1}{12}
+   %labels
+   \gantttitle{Internship Project}{12}\\  % title 1           
+   \gantttitle{April}{4}                      % title 3
+   \gantttitle{May}{4}
+   \gantttitle{June}{4}
+   % Setting group if any
+   \ganttgroup[inline=false]{Group 1}{1}{5}\\ 
+   \ganttbar[progress=10,inline=false]{Planning}{1}{4}\\
+   \ganttmilestone[inline=false]{Milestone 1}{9} \\
+\end{ganttchart}
