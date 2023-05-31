@@ -1,27 +1,39 @@
 \chapter{Internship description}
 \label{cap:descrizione-stage}
 
-\intro{Breve introduzione al capitolo}\\
+\intro{This chapter will describe the internship project, the requirements and the goals.}
 
-\section{Introduzione al progetto}
+\section{Initial analysis}
+Given the idea of the project, the first step was to analyze the requirements for get a GAN model that was able to do the job.\\
+Some questions were made to understand what we want to achieve and how to do it.\\
+\begin{itemize}
+    \item \textbf{What kind of images the model should generate?}
+    \item \textbf{What kind of images the model should receive as input?}
+    \item \textbf{What kind of network should be used?}
+    \item \textbf{What kind of features should be extracted from the images?}
+    \item \textbf{What kind of dataset should be used?}
+\end{itemize}
 
-\section{Analisi preventiva dei rischi}
+From the previous questions, was possible to define Requirements, Goals and a roadmap for the project.\\
 
-Durante la fase di analisi iniziale sono stati individuati alcuni possibili rischi a cui si potrà andare incontro.
-Si è quindi proceduto a elaborare delle possibili soluzioni per far fronte a tali rischi.\\
-
-\begin{risk}{Performance del simulatore hardware}
-    \riskdescription{le performance del simulatore hardware e la comunicazione con questo potrebbero risultare lenti o non abbastanza buoni da causare il fallimento dei test}
-    \risksolution{coinvolgimento del responsabile a capo del progetto relativo il simulatore hardware}
-    \label{risk:hardware-simulator} 
-\end{risk}
-
-\section{Requisiti e obiettivi}
-
-
+\section{Requirements \& Goals}
+\subsection{Requirements}
+\begin{itemize}
+    \item \textbf{Requirement 1}: The dataset should be composed by high quality images;
+    \item \textbf{Requirement 2}: The model should be able to generate images from a given input, like a sketch;
+    \item \textbf{Requirement 3}: The model should be able to generate images with a good quality, comparable with the real images;
+    \item \textbf{Requirement 4}: The generated images should be previewed in real time;
+\end{itemize}
+\subsection{Goals}
+\begin{itemize}
+    \item \textbf{Goal 1}: Obtain a dataset of images with a good quality and variety;
+    \item \textbf{Goal 2}: Obtain a model that is able to generate images from a sketch;
+    \item \textbf{Goal 3}: Obtain a desktop application that is able to generate images in real time and preview them;
+\end{itemize}
 \section{Planning}
 All the activity of the internship has been planned using a specific division of the time in different phases.\\
 \begin{itemize}
+    \item \textbf{Study period}: study of the state of the art and the technologies that will be used;
     \item \textbf{First period}: images acquisition;
     \item \textbf{Second period}: dataset increase, images augmentation;
     \item \textbf{Third period}: main feature extraction;
@@ -70,7 +82,7 @@ All the activity of the internship has been planned using a specific division of
    \ganttbar[progress=50,inline=false]{General improvements \& Docs}{7}{11}\\
    \ganttmilestone[inline=false]{Milestone 5}{11} \\
 \end{ganttchart}
-
+\subsection{Study Period:}
 \subsection{First Period:}
 During this was the acquisition of the images.\\
 Every Breton machine has been equipped with a camera and a computer with a software that allows to acquire images from the camera.\\
