@@ -1,5 +1,5 @@
-  \Title{Document’s title}
-  \Author{Author’s name}
-  \Language{it-IT}
-  \Subject{The abstract, or short description.}
-  \Keywords{keyword1\sep keyword2\sep keyword3}
+  \Title{Generating Realistic Marble Textures using Generative Adversarial Networks}
+  \Author{Marco Bernardi}
+  \Language{en-US}
+  \Subject{This thesis aims to explore the use of Generative Adversarial Networks (GANs) to generate realistic marble textures. The main goal is to create a model that can generate marble textures with a high degree of realism and variability.}
+  \Keywords{GANs\sep Marble\sep Texture\sep Deep Learning\sep Generative Adversarial Networks}

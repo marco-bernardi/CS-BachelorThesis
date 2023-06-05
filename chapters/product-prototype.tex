@@ -180,19 +180,95 @@ company. The hardware used for the development of this project is listed below: 
         \item \textbf{OS}: Windows 10 Pro 64-bit
     \end{itemize}
 \end{itemize}
-\section{Ciclo di vita del software}
-\label{sec:ciclo-vita-software}
-
+\section{Final implementation}
+\label{sec:final-implementation}
+\subsection{Network Type}
+\label{subsec:network-type}
+For the final implementation of the project, the network type chosen was the Pix2Pix model.
+\subsubsection{Pix2Pix in detail}
+\label{subsubsec:pix2pix-in-detail}
+Pix2Pix is a Generative Adversarial Network, or \gls{gang}, model designed for general
+purpose image-to-image translation.
+The two models are build as the following:
+\subsubsection{U-Net Generator}
+The generator follow the U-Net architecture, which is a convolutional neural network that
+consists of an encoder (downsampler) and a decoder (upsampler). The encoder downsamples the
+input image and extracts the features, while the decoder upsamples the image and produces
+the segmentation map. The skip connections between the encoder and decoder are added to
+prevent the loss of low-level features during the upsampling process.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{model/unet-gen}
+    \caption{U-Net architecture}
+    \label{fig:unet}
+\end{figure}
+\subsection{PatchGAN Discriminator}
+\label{subsec:patchgan-discriminator}
+The discriminator is a convolutional neural network that classifies the real and fake
+images. The discriminator architecture is such that each convolutional block in the
+discriminator consists of a convolution layer, a batch normalization layer, and a Leaky
+ReLU activation layer. The PatchGAN discriminator architecture is such that it only penalizes
+the structure at the scale of patches. This discriminator tries to classify if each N x N
+patch in an image is real or fake.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{model/patch-gan}
+    \caption{PatchGAN discriminator.\\ Each value of the output matrix represents the probability of whether the corresponding image patch is real or it is artificially generated.}
+    \label{fig:patchgan}
+\end{figure}
+\subsection{Training process}
+\label{subsec:training-process}
+The training process of the model is the following:
+\begin{enumerate}
+    \item The generator G takes the input image X and generates the output image Y'.
+    \item The discriminator D takes the input image X and the generated image Y' and
+    classifies them as real or fake.
+    \item The generator loss is calculated as the sum of adversarial loss and L1 loss.
+    \item The discriminator loss is the sum of the losses for the real and fake images.
+    \item The generator and discriminator parameters are updated using the gradients
+    obtained in the previous step.
+\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.50\textwidth]{model/gen-training}
+    \caption{Generator training process}
+    \label{fig:gen-training}
+    \includegraphics[width=0.50\textwidth]{model/dis-training}
+    \caption{Discriminator training process}
+    \label{fig:dis-training}
+\end{figure}
+\subsection{User Interface}
+\label{subsec:user-interface}
+The user interface was developed using the Python library Tkinter.
+It consists of a window with a menu bar and a canvas where the user can draw.
+The menu bar consists of the following:
+\begin{itemize}
+    \item \textbf{Colors}
+    \begin{itemize}
+        \item \textbf{Brush Color}: Set the Brush color.
+        \item \textbf{background Color}: Set the background color.
+    \end{itemize}
+    \item \textbf{Options}
+    \begin{itemize}
+        \item \textbf{Clear canvas}: Undo the last action.
+        \item \textbf{Generate Image}: Redo the last action.
+        \item \textbf{Load CAD}: Load a CAD file as input.
+        \item \textbf{Load PNG/JPG}: Load a .PNG file as input.
+        \item \textbf{Exit}: Exit the application.
+    \end{itemize}
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.50\textwidth]{ui/ui}
+    \caption{User interface}
+    \label{fig:ui}
+\end{figure}
+Once the input is submitted, the application will show the output in the lower canvas.
+And save it in the \textit{output} folder.
 \section{Progettazione}
 \label{sec:progettazione}
 
-\subsubsection{Namespace 1} %**************************
-Descrizione namespace 1.
 
-\begin{namespacedesc}
-    \classdesc{Classe 1}{Descrizione classe 1}
-    \classdesc{Classe 2}{Descrizione classe 2}
-\end{namespacedesc}
 
 
 \section{Design Pattern utilizzati}
