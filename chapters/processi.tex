@@ -30,8 +30,8 @@ Manual inspections is the simplest method of model evaluation, but it has many d
     \item it require knowledge of the domain of the data;
     \item it is time consuming, so limited to the number of images that can be evaluated;
 \end{itemize}
-\emph{…evaluating the quality of generated images with human vision is expensive and cumbersome, biased […] difficult to reproduce, and does not fully reflect the capacity of models.}
-\footcite{paper:ganeval}\\
+\emph{…evaluating the quality of generated images with human vision is expensive and cumbersome, biased […] difficult to reproduce, and does not fully reflect the capacity of models}
+\footcite{paper:ganeval}.\\\\
 This mean that this process will be for sure biased, so it shouldn't be used for a final model selection,
  but it can be used to get a first impression of the model performance.
 Thankfully, more objective methods of evaluation have been proposed and adopted.
@@ -42,11 +42,27 @@ Some of the most common qualitative measures are:
 \begin{itemize}
     \item \textbf{Nearest neighbors}: used to detect overfitting, by comparing the generated samples with the training data;
     \item \textbf{Rapid Scene Categorization}\footcite{paper:rapidscenecat}:in these experiments, subjects were asked to categorize images as real or fake as quickly as possible;
-    \item \textbf{Rating and Preference judgement}\footcite{paper:stackadvnet}\footcite{paper:stackadvnet1}: 
+    \item \textbf{Rating and Preference judgement}\footcite{paper:stackadvnet}\footcite{paper:stackadvnet1}\footcite{paper:stackadvnet2}\footcite{paper:stackadvnet3}: 
     partecipants are asked to rate the quality of the generated samples, or to choose the best samples from a set of generated samples;
-    \item Evaluating Mode Drop and Mode Collaps;
-    \item Investigating and visualizing the internals of networks;
+    \item \textbf{Mode Drop and Collapse}\footcite{paper:dropandcollapse}\footcite{paper:dropandcollapse2}: over datasets with multiple known modes, modes are coumputed as by measuring the distance of generated data to mode centers;
+    \item \textbf{Network Internals}\footcite{paper:netint}\footcite{paper:netint1}\footcite{paper:netint2}\footcite{paper:netint3}\footcite{paper:netint4}\footcite{paper:netint5}: 
+    the internal state of the models is used to evaluate the quality of the generated samples (e.g. space continuity, neuron activation, etc.);
 \end{itemize}
+The most used qualitative measure is a sort of manual inspection of images, called \emph{Rating and Preference judgement}.\\\\
+\emph{These types of experiments ask subjects to rate models in terms of the fidelity of their generated images}\footcite{paper:ganeval}.\\\\
+Usually images are shown in pairs (one real and one fake), and the subjects are asked to choose the best image.
+A score or rating is then assigned to the model based on the number of times it is chosen as the best image.
+For lowering the variance of the results, the images are shown to multiple human judges and the results are averaged.
+This process is labor intensive, but with the help of crowdsourcing platforms like Amazon Mechanical Turk, 
+it can be done at scale (Reducing the cost also).\\
+Another downside of this method is that the human judges performance can improve with experience, especially if they are given feedback on their performance.\\\\
+\emph{By learning from such feedback, annotators are better able to point out the flaws in generated images, giving a more pessimistic quality assessment}\footcite{paper:ganeval}.\\\\
+
+Another similar method for subjectively evaluating the quality of generated images is \emph{"Nearest neighbors"}.
+In this method, some examples of real images are picked from the domain of the data, and than it's picked the most similar generated images for comparison.
+Some of the distance measures used for this method are Euclidean distance, cosine distance, and L1 distance.
+Nearest neighbors can be used to determine how realistic the generated images are.
+
 
 \subsection{Quantitative evaluation}
 \label{subsec:quantitative-evaluation}
@@ -79,3 +95,33 @@ Some of the most common quantitative measures are:
     \item Low-level Image Statistics
     \item Precision, Recall and F1 Score
 \end{itemize}
+
+The most used quantitative measures are \emph{Inception Score} and \emph{Frechet Inception Distance}.
+\subsubsection{Inception Score}
+\label{subsubsec:inception-score}
+Inception Score (IS) is a quantitative measure of the quality of generated images based on the Inception model.
+It was proposed in 2016 by Tim Salimans et al. in \emph{"Improved Techniques for Training GANs"}\footcite{paper:salimans2016improved}.
+The Inception Score is based on the idea that a good generative model should produce samples that are both \emph{diverse} and \emph{realistic}.
+Calculating the IS requires the use of a pretrained Inception model, the Inception v3 model\footcite{paper:inceptionv3} and a dataset of generated images.
+The Inception model is used to compute the conditional label distribution $p(y|x)$, where $x$ is an image and $y$ is a class label.
+The Inception Score is then computed as:
+\begin{equation}
+    \label{eq:inception-score}
+    \exp \left( \mathbb{E}_{x \sim p_{g}} \left[ \mathbb{KL}(p(y|x) || p(y)) \right] \right)
+\end{equation}
+where $p(y)$ is the marginal label distribution, and $p_{g}$ is the distribution of generated images.
+The marginal label distribution $p(y)$ is approximated by computing the class distribution of the training set.
+The Inception Score is then computed as the exponential of the KL divergence between the conditional label distribution and the marginal label distribution.
+The KL divergence is a measure of how one probability distribution is different from a second, reference probability distribution.
+The KL divergence is defined as:
+\begin{equation}
+    \label{eq:kl-divergence}
+    \mathbb{KL}(p(y|x) || p(y)) = \sum_{y} p(y|x) \log \frac{p(y|x)}{p(y)}
+\end{equation}
+The Inception Score is a good measure of the quality of generated images, but it has some limitations.
+The Inception Score is not a good measure of the diversity of generated images, and it is not a good measure of the quality of generated images when the dataset contains multiple modes.
+\subsubsection{Frechet Inception Distance}
+\label{subsubsec:frechet-inception-distance}
+Frechet Inception Distance (FID) is a quantitative measure of the quality of generated images based on the Inception model.
+It was proposed in 2017 by Martin Heusel et al. in \emph{"GANs Trained by a Two Time-Scale Update Rule Converge to a Local Nash Equilibrium"}\footcite{paper:heusel2017gans}.\\\\
+\emph{"FID performs well in terms of discriminability, robustness and computational efficiency [...] It has been shown that FID is consistent with human judgments and is more robust to noise than IS".}\footcite{paper:ganeval}\\\\
