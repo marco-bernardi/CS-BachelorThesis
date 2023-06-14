@@ -125,3 +125,25 @@ The Inception Score is not a good measure of the diversity of generated images, 
 Frechet Inception Distance (FID) is a quantitative measure of the quality of generated images based on the Inception model.
 It was proposed in 2017 by Martin Heusel et al. in \emph{"GANs Trained by a Two Time-Scale Update Rule Converge to a Local Nash Equilibrium"}\footcite{paper:heusel2017gans}.\\\\
 \emph{"FID performs well in terms of discriminability, robustness and computational efficiency [...] It has been shown that FID is consistent with human judgments and is more robust to noise than IS".}\footcite{paper:ganeval}\\\\
+Calculating the FID requires the use of a pretrained Inception model, the Inception v3 model\footcite{paper:inceptionv3} like the Inception Score.
+The FID is computed as the Frechet distance between the feature representations of the real images and the generated images.
+The Frechet distance is a measure of the similarity between two probability distributions.
+The FID is defined as:
+\begin{equation}
+    \label{eq:frechet-inception-distance}
+    \text{FID}(p_{r}, p_{g}) = \left\| \mu_{r} - \mu_{g} \right\|_{2}^{2} + \text{Tr} \left( \Sigma_{r} + \Sigma_{g} - 2 \left( \Sigma_{r} \Sigma_{g} \right)^{1/2} \right)
+\end{equation}
+where $\mu_{r}$ and $\mu_{g}$ are the mean vectors of the real and generated images, and $\Sigma_{r}$ and $\Sigma_{g}$ are the covariance matrices of the real and generated images.
+The FID is a good measure of the quality of generated images, but it has some limitations.
+The FID is not a good measure of the diversity of generated images, and it is not a good measure of the quality of generated images when the dataset contains multiple modes.
+\subsubsection{Suggested GAN evaluation procedure}
+\label{subsubsec:suggested-gan-evaluation-procedure}
+At the starting of this section, we have seen that the evaluation of GANs is a difficult task.
+A good way to evaluate GANs is to use a combination of qualitative and quantitative measures.
+Starting with a manual inspection of the generated images, in order to evaluate the quality of the generator model.
+After that, we can use some quantitative measures to evaluate the quality of the generated images and the diversity like the Inception Score and the Frechet Inception Distance.
+Remember, that there is no single best measure for evaluating GANs, and that the choice of the evaluation measures depends on the task and the dataset.\\\\
+
+\emph{
+    As of yet, there is no consensus regarding the best score. Different scores assess various aspects of the image generation process, and it is unlikely that a single score can cover all aspects. Nevertheless, some measures seem more plausible than others (e.g. FID score)
+}\footcite{paper:ganeval}\\\\

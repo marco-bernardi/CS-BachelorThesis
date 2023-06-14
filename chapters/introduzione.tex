@@ -47,17 +47,34 @@ The company is certified according to the following standards:
     \item \textbf{UNI INAIL ed. 2001:} Breton is certified according to the UNI INAIL ed. 2001 standard, which specifies requirements for a health and safety management system.
 \end{itemize}
 \section{The idea}
+The idea born from a company request, they want to extract the main features of a marble slab, such as the veins, texture, and colors for automatically create a digital fingerprint of the marble slab.\\
+This digital fingerprint can be easily achieved with a classic \gls{mlg} model. Veins in marble slabs are not always the same, and the marble slabs are not always perfect, so teach to a \gls{mlg} model what is and what is not a veins could be very challenging.\\
+For this reason it's needed a lot of images with the respective veins path for train the model, and this is not always possible for different reasons:
+\begin{itemize}
+    \item Breton work only on test slabs, so they don't have a large amount of images. 
+    For solve this problem, they've to rely on the customers, and many times the customers don't want to share their images.
+    \item Manually extract the veins path from the images is very time consuming, and will take a lot of time and human resources.
+\end{itemize}
+So the idea is to create a generative model that can generate a large amount of images with the respective veins path, and use this images for train the \gls{mlg} model.\\
+\subsection{Side Idea}
+From the main idea, born a side idea, that is to create a \gls{cncg} program from an image file.\\
+In this way they can recreate veins on technological stones slabs, by the use of a \gls{cncg} machine.\\
+This idea is very challenging, because convert an image file to a \gls{cncg} program is not a simple task, \gls{cncg} program is a list of instructions for the machine, and the image file is a matrix of pixels.\\
+For this reason, the side idea was reverted and become: "Generate a marble slab image from a \gls{cadg} model".\\
+The \gls{gang} model need to be able to reproduce colors, textures and the veins should follow the path of the \gls{cadg} model.\\
+This is more feasible, the \gls{cadg} model can be easily converted to a \gls{cncg} program, and the \gls{cncg} program can be used for create a marble slab.\\
 
-The idea of the project was born from a request of some customers, that want to extract the main features of a marble slab, such as the veins, texture, and colors for creating a digital
-fingerprint of the marble slab.\\
-In this way the customer can have a digital copy of the marble slab, and can use it for create a \gls{cadg} model of the marble slab, and use it for create a \gls{cncg} program for the machines.\\
-Having a model capable of extract the main features of the marble slab, could reduce the workload of the designer, that can avoid to do it by hand.\\
-This request was a bit eulerian, because the veins are not always the same and the marble slab are not always perfect, so teach to a \gls{mlg} model what is and what is not a veins could be very challenging.\\
-Plus convert an image file to a \gls{cncg} program is not a simple task, because the \gls{cncg} program is a list of instructions for the machine, and the image is a matrix of pixels, so the conversion is not trivial.\\
-
-Then it was choose to revert the problem, and instead of convert an image to a \gls{cncg} program, it was choose to convert a \gls{cadg} file to an image, and the relative \gls{cncg} program.\\
-The \gls{gang} model need to be trained for reproduce the colors and the texture of the marble slab, with the given path of the veins exported from the \gls{cadg} file.\\
-This approach was more feasible, because the \gls{cadg} file can be easily converted to a \gls{cncg} program with the existing software.\\
+%% OLD IDEA
+%The idea of the project was born from a request of some customers, that want to extract the main features of a marble slab, such as the veins, texture, and colors for creating a digital
+%fingerprint of the marble slab.\\
+%In this way the customer can have a digital copy of the marble slab, and can use it for create a \gls{cadg} model of the marble slab, and use it for create a \gls{cncg} program for the machines.\\
+%Having a model capable of extract the main features of the marble slab, could reduce the workload of the designer, that can avoid to do it by hand.\\
+%This request was a bit eulerian, because the veins are not always the same and the marble slab are not always perfect, so teach to a \gls{mlg} model what is and what is not a veins could be very challenging.\\
+%Plus convert an image file to a \gls{cncg} program is not a simple task, because the \gls{cncg} program is a list of instructions for the machine, and the image is a matrix of pixels, so the conversion is not trivial.\\
+%
+%Then it was choose to revert the problem, and instead of convert an image to a \gls{cncg} program, it was choose to convert a \gls{cadg} file to an image, and the relative \gls{cncg} program.\\
+%The \gls{gang} model need to be trained for reproduce the colors and the texture of the marble slab, with the given path of the veins exported from the \gls{cadg} file.\\
+%This approach was more feasible, because the \gls{cadg} file can be easily converted to a \gls{cncg} program with the existing software.\\
 
 \section{Objectives}
 The objectives of the project could be classified in tree main categories recognized by the following letters:
@@ -122,17 +139,13 @@ The objectives are listed in the following table:
     The first chapter introduce the company and its products and services.\\
     It also describes the idea of the project and the text structure.
 
+    \item[{\hyperref[cap:descrizione-stage]{Second chapter}}] The second chapter describes the process and the methodology used for the development of the project.
     
-    \item[{\hyperref[cap:descrizione-stage]{Second chapter}}] approfondisce ...
+    \item[{\hyperref[cap:process-methodologies]{Third chapter}}] Third chapter describes the internship experience, in all its aspects.
     
-    \item[{\hyperref[cap:analisi-requisiti]{Il quarto capitolo}}] approfondisce ...
-    
-    \item[{\hyperref[cap:design-coding]{Fifth chapter}}] The fifth chapter describes the design and the implementation of the project. \\
+    \item[{\hyperref[cap:design-coding]{Fifth chapter}}] The fifth chapter describes the design and the implementation of the project.
     It describes the technologies used and the architecture of the project.
     
-    \item[{\hyperref[cap:verifica-validazione]{Il sesto capitolo}}] approfondisce ...
-    
-    \item[{\hyperref[cap:conclusioni]{Nel settimo capitolo}}] descrive ...
 \end{description}
 
 During the writing of this document, the following conventions were adopted:
