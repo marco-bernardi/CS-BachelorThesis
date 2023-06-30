@@ -1,19 +1,14 @@
-\chapter{Design and coding}
-\label{cap:design-coding}
-
+\chapter{Design and coding}\label{cap:design-coding}
 \intro{In this chapter we will describe the design and coding of the project.
 We will start by describing the technologies and tools used, then we will
 describe the software life cycle, the design and the design patterns used and
 finally we will describe the coding phase.}
 
 
-\section{Technology and tools}
-\label{sec:technology-tools}
-
+\section{Technology and tools}\label{sec:technology-tools}
 In the following sections we will describe the technologies and tools used in
 the project.
-\subsection*{Python}
-\label{subsec:python}
+\subsection*{Python}\label{subsec:python}
 Python is a programming language that lets you work quickly and integrate
 systems more effectively. It is a high-level programming language, with
 applications in numerous areas, including web programming, scripting, scientific
@@ -27,8 +22,7 @@ syntax, which makes it very readable and easy to understand. It is also a
 language that is constantly evolving, with new versions released every year,
 which makes it always up to date and with the latest technologies.
 
-\subsection*{CUDA}
-\label{subsec:cuda}
+\subsection*{CUDA}\label{subsec:cuda}
 CUDA is a parallel computing platform and programming model developed by NVIDIA
 for general computing on graphical processing units (GPUs). With CUDA, developers
 are able to dramatically speed up computing applications by harnessing the power
@@ -39,38 +33,31 @@ parallel. When using CUDA, developers program in popular languages such as C,
 C++, Fortran, Python and MATLAB and express parallelism through extensions in
 the form of a few basic keywords.
 
-\subsection*{CuDNN}
-\label{subsec:cudnn}
+\subsection*{CuDNN}\label{subsec:cudnn}
 The NVIDIA CUDA® Deep Neural Network library (cuDNN) is a GPU-accelerated library
-of primitives for deep neural networks. cuDNN provides highly tuned
-implementations for standard routines such as forward and backward convolution,
-pooling, normalization, and activation layers. cuDNN is part of the NVIDIA Deep
-Learning SDK.
-
-\subsection*{ML libraries}
-\label{subsec:mllib}
-\subsubsection*{TensorFlow}
-\label{subsubsec:tensorflow}
+of primitives for deep neural networks.
+cuDNN provides highly tuned implementations for standard routines such as forward and backward convolution,
+pooling, normalization, and activation layers. 
+cuDNN is part of the NVIDIA Deep Learning SDK.\@
+\subsection*{ML libraries}\label{subsec:mllib}
+\subsubsection*{TensorFlow}\label{subsubsec:tensorflow}
 TensorFlow is an end-to-end open source platform for machine learning. It has a
 comprehensive, flexible ecosystem of tools, libraries and community resources
 that lets researchers push the state-of-the-art in ML and developers easily
 build and deploy ML powered applications.
-\subsubsection*{PyTorch}
-\label{subsubsec:pytorch}
+\subsubsection*{PyTorch}\label{subsubsec:pytorch}
 PyTorch is an open source machine learning library based on the Torch library,
 used for applications such as computer vision and natural language processing,
 primarily developed by Facebook's AI Research lab (FAIR). It is free and open
 source software released under the Modified BSD license. Although the Python
 interface is more polished and the primary focus of development, PyTorch also
 has a C++ interface.
-\subsubsection*{Keras}
-\label{subsubsec:keras}
+\subsubsection*{Keras}\label{subsubsec:keras}
 Keras is a high-level neural networks \gls{apig}, written in Python and capable of
 running on top of TensorFlow, CNTK, or Theano. It was developed with a focus on
 enabling fast experimentation. Being able to go from idea to result with the
 least possible delay is key to doing good research.
-\subsubsection*{OpenCV}
-\label{subsubsec:opencv}
+\subsubsection*{OpenCV}\label{subsubsec:opencv}
 OpenCV (Open Source Computer Vision Library) is an open source computer vision
 and machine learning software library. OpenCV was built to provide a common
 infrastructure for computer vision applications and to accelerate the use of
@@ -88,10 +75,8 @@ to overlay it with augmented reality, etc. OpenCV has more than 47 thousand
 people of user community and estimated number of downloads exceeding 18 million.
 The library is used extensively in companies, research groups and by governmental
 bodies.
-\subsection*{GANs Models}
-\label{subsec:gans-models}
-\subsubsection*{Pix2Pix}\footcite{paper:pix2pix}
-\label{subsubsec:pix2pix}
+\subsection*{GANs Models}\label{subsec:gans-models}
+\subsubsection*{Pix2Pix}\footcite{paper:pix2pix}\label{subsubsec:pix2pix}
 Pix2Pix is a Generative Adversarial Network, or \gls{gang}, model designed for general
 purpose image-to-image translation. The model was trained and evaluated on a
 large dataset of paired images from the \textit{Berkeley Segmentation Dataset
@@ -99,8 +84,7 @@ and Benchmark} and demonstrates a capability to generate plausible synthetic
 images for a variety of image-to-image translation tasks, such as converting
 daylight images to night.
 
-\subsubsection*{ESRGAN}\footcite{paper:esrgan}
-\label{subsubsec:esrgan}
+\subsubsection*{ESRGAN}\footcite{paper:esrgan}\label{subsubsec:esrgan}
 ESRGAN is an enhanced version of the \gls{esrgang} model, which is a Generative
 Adversarial Network, or \gls{gang}, model designed for general purpose
 image-to-image translation. The model was trained and evaluated on a large
@@ -108,30 +92,25 @@ dataset of paired images from the DIV2K dataset and demonstrates a capability to
 generate plausible synthetic images for a variety of image-to-image translation
 tasks, such as converting low resolution images to high resolution.
 
-\subsubsection*{StyleGAN}
-\label{subsubsec:stylegan}
+\subsubsection*{StyleGAN}\label{subsubsec:stylegan}
 StyleGAN is a Generative Adversarial Network, or \gls{gang}, model designed for
 general purpose image generation. The model was trained and evaluated on a large
 dataset of unpaired images from the Flickr-Faces-HQ dataset and demonstrates a
 capability to generate plausible synthetic images for a variety of image
 generation tasks, such as generating realistic human faces.
 
-\subsection*{Tools}
-\label{subsec:tools}
-\subsubsection*{Visual Studio Code}
-\label{subsubsec:vscode}
+\subsection*{Tools}\label{subsec:tools}
+\subsubsection*{Visual Studio Code}\label{subsubsec:vscode}
 Visual Studio Code is a free source-code editor made by Microsoft for Windows,
-Linux and macOS. Features include support for debugging, syntax highlighting,
+Linux and macOS.\@ Features include support for debugging, syntax highlighting,
 intelligent code completion, snippets, code refactoring, and embedded Git.
-\subsubsection*{Git}
-\label{subsubsec:git}
+\subsubsection*{Git}\label{subsubsec:git}
 Git is a distributed version-control system for tracking changes in source code
 during software development. It is designed for coordinating work among
 programmers, but it can be used to track changes in any set of files. Its goals
 include speed, data integrity, and support for distributed, non-linear
 workflows.
-\subsubsection*{GitHub}
-\label{subsubsec:github}
+\subsubsection*{GitHub}\label{subsubsec:github}
 GitHub is a global company that provides hosting for software development
 version control using Git. It is a subsidiary of Microsoft, which acquired the
 company in 2018 for \$7.5 billion. It offers all of the distributed version
@@ -139,27 +118,23 @@ control and source code management (SCM) functionality of Git as well as adding
 its own features. It provides access control and several collaboration features
 such as bug tracking, feature requests, task management, and wikis for every
 project.
-\subsubsection*{GIMP}
-\label{subsubsec:gimp}
+\subsubsection*{GIMP}\label{subsubsec:gimp}
 GIMP is a free and open-source raster graphics editor used for image retouching
 and editing, free-form drawing, converting between different image formats, and
 more specialized tasks.
-\subsubsection*{Webex}
-\label{subsubsec:webex}
+\subsubsection*{Webex}\label{subsubsec:webex}
 Webex is a video conferencing software developed by Cisco Systems. It is a
 cloud-based software that provides video conferencing, online meetings,
 screen-sharing, and webinars. It has a free version that allows up to 100
 participants, with a 50-minute time restriction. The paid version starts at
 \$13.50/month and allows up to 200 participants and unlimited meeting time.
-\subsubsection*{Outlook}
-\label{subsubsec:outlook}
+\subsubsection*{Outlook}\label{subsubsec:outlook}
 Outlook is a personal information manager software system from Microsoft,
 available as a part of the Microsoft Office suite. Primarily an email
 application, it also includes a calendar, task manager, contact manager,
 note taking, journal, and web browsing.
 
-\subsection*{Hardware}
-\label{subsec:hardware}
+\subsection*{Hardware}\label{subsec:hardware}
 All the hardware used for the development of this project was provided by the
 company. The hardware used for the development of this project is listed below: \\
 \begin{itemize}
@@ -180,30 +155,36 @@ company. The hardware used for the development of this project is listed below: 
         \item \textbf{OS}: Windows 10 Pro 64-bit
     \end{itemize}
 \end{itemize}
-\section{Final implementation}
-\label{sec:final-implementation}
-\subsection{Network Type}
-\label{subsec:network-type}
+\section{Final implementation}\label{sec:final-implementation}
+\subsection{Network Type}\label{subsec:network-type}
 For the final implementation of the project, the network type chosen was the Pix2Pix model.
-\subsubsection{Pix2Pix in detail}
-\label{subsubsec:pix2pix-in-detail}
-Pix2Pix is a Generative Adversarial Network, or \gls{gang}, model designed for general
-purpose image-to-image translation.
+\subsubsection{Pix2Pix in detail}\label{subsubsec:pix2pix-in-detail}
+Pix2Pix is a Generative Adversarial Network, or \gls{gang}, model designed for general purpose image-to-image translation.
 The two models are build as the following:
 \subsubsection{U-Net Generator}
 The generator follow the U-Net architecture, which is a convolutional neural network that
-consists of an encoder (downsampler) and a decoder (upsampler). The encoder downsamples the
+consists of an encoder (down-sampler) and a decoder (up-sampler). The encoder downsamples the
 input image and extracts the features, while the decoder upsamples the image and produces
 the segmentation map. The skip connections between the encoder and decoder are added to
 prevent the loss of low-level features during the upsampling process.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{model/unet-gen}
-    \caption{U-Net architecture}
-    \label{fig:unet}
+    \caption{U-Net architecture}\label{fig:unet}
 \end{figure}
-\subsection{PatchGAN Discriminator}
-\label{subsec:patchgan-discriminator}
+\subsubsection{TensorFlow implementation}
+The TensorFlow implementation of the U-Net generator is composed by the following layers (see figure~\ref{fig:gen-layer}):
+\begin{itemize}
+    \item \textbf{Encoder}: 8 downsampling layers, each downsampling layer is composed by a convolutional layer, a batch normalization layer, and a Leaky ReLU activation layer.
+    \item \textbf{Decoder}: 8 upsampling layers, each upsampling layer is composed by a transposed convolutional layer, a batch normalization layer, a dropout layer(applied to the first 3 layers), and a ReLU activation layer.
+    \item \textbf{Skip connections}: between the encoder and decoder, there are skip connections, each skip connection.
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{model/generator-layer}
+    \caption{TensorFlow implementation of the U-Net generator}\label{fig:gen-layer}
+\end{figure}
+\subsection{PatchGAN Discriminator}\label{subsec:patchgan-discriminator}
 The discriminator is a convolutional neural network that classifies the real and fake
 images. The discriminator architecture is such that each convolutional block in the
 discriminator consists of a convolution layer, a batch normalization layer, and a Leaky
@@ -212,35 +193,64 @@ the structure at the scale of patches. This discriminator tries to classify if e
 patch in an image is real or fake.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{model/patch-gan}
-    \caption{PatchGAN discriminator.\\ Each value of the output matrix represents the probability of whether the corresponding image patch is real or it is artificially generated.}
-    \label{fig:patchgan}
+    \includegraphics[width=0.6\textwidth]{model/patch-gan}
+    \caption{PatchGAN discriminator.}\label{fig:patchgan}
 \end{figure}
-\subsection{Training process}
-\label{subsec:training-process}
-The training process of the model is the following:
-\begin{enumerate}
-    \item The generator G takes the input image X and generates the output image Y'.
-    \item The discriminator D takes the input image X and the generated image Y' and
-    classifies them as real or fake.
-    \item The generator loss is calculated as the sum of adversarial loss and L1 loss.
-    \item The discriminator loss is the sum of the losses for the real and fake images.
-    \item The generator and discriminator parameters are updated using the gradients
-    obtained in the previous step.
-\end{enumerate}
+Each value of the output matrix in fig.~\ref*{fig:patchgan} represents the probability of whether the corresponding image patch is real or it is artificially generated.
+\subsubsection{TensorFlow implementation}
+The TensorFlow implementation of the PatchGAN discriminator is composed by the following layers (see figure~\ref{fig:dis-layer}):
+\begin{itemize}
+    \item \textbf{Input}: 2 input layers, one for the real image and one for the generated image.
+    \item \textbf{Concatenate}: the two input layers are concatenated along the channel axis.
+    \item \textbf{Downsampling}: the concatenated input is downsampled using 3 convolutional layers, each convolutional layer is composed by a convolutional layer, a batch normalization layer, and a Leaky ReLU activation layer.
+    \item \textbf{Output}: the output layer is a 30$\times$30$\times$1 matrix, where each patch of the output classifies a 70$\times$70 portion of the input image as real or fake.
+\end{itemize}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.50\textwidth]{model/gen-training}
-    \caption{Generator training process}
-    \label{fig:gen-training}
-    \includegraphics[width=0.50\textwidth]{model/dis-training}
-    \caption{Discriminator training process}
-    \label{fig:dis-training}
+    \includegraphics[width=0.85\textwidth]{model/discriminator-layer}
+    \caption{TensorFlow implementation of the PatchGAN discriminator}\label{fig:dis-layer}
 \end{figure}
-\subsection{User Interface}
-\label{subsec:user-interface}
-The user interface was developed using the Python library Tkinter.
-It consists of a window with a menu bar and a canvas where the user can draw.
+\subsection{Adam optimizer}\label{subsubsec:adam-optimizer}
+The Adam optimizer is a widely used optimization algorithm for training neural networks. 
+It was introduced by Diederik P. Kingma and Jimmy Ba in their paper titled ``Adam: A Method for Stochastic Optimization'~\footcite{paper:kingma2014adam} published in 2015. 
+Adam stands for Adaptive Moment Estimation and combines the benefits of two other optimization techniques: AdaGrad and RMSProp. It maintains adaptive learning rates for each parameter, automatically adjusting the learning rate based on the gradient's past behavior. 
+By utilizing first and second moments of the gradients, Adam updates the parameters to accelerate convergence and handle different types of neural networks effectively.
+It can be used instead of the classical stochastic gradient descent procedure to update network weights iterative based on training data.
+According to Kingma et al., the method is ``computationally efficient, has little memory requirements, invariant to diagonal rescaling of gradients, and is well suited for problems that are large in terms of data and/or parameters``.
+\par
+Following the pix2pix paper, the Adam optimizer is used with a learning rate of 0.0002 and momentum of 0.5 for both the generator and the discriminator.
+\subsection{Training process}\label{subsec:training-process}
+For the generator training the procedure is the following illustrated in fig.~\ref{fig:gen-training}, Meanwhile for the discriminator training the procedure is the following illustrated in fig.~\ref{fig:dis-training}.
+\par
+The training process begins with pairs of input images and their corresponding target output images. 
+The generator network takes the input image as input and generates a synthesized output image. 
+The discriminator network, on the other hand, receives both the synthesized output image from the generator and the real target output image. 
+The discriminator's objective is to correctly classify whether the input image is real or synthesized.
+\par
+The training process involves alternating between two steps: generator update and discriminator update. 
+In the generator update step, the generator parameters are updated to minimize the discrepancy between the synthesized output image and the target output image. 
+This is typically done by minimizing a pixel-wise loss function, such as mean squared error or binary cross-entropy, which measures the difference between the synthesized and target images.
+\par 
+In the discriminator update step, the discriminator parameters are updated to improve its ability to discriminate between real and synthesized images. 
+The discriminator is trained to correctly classify real images as real and synthesized images as fake. It aims to maximize its classification accuracy.
+\par
+The training process continues iteratively, with the generator and discriminator networks playing a competitive game. 
+The generator learns to generate more realistic and visually appealing output images that closely resemble the target images, while the discriminator becomes more skilled at distinguishing between real and synthesized images.
+\par
+This adversarial training process creates a feedback loop where the generator tries to produce images that the discriminator cannot distinguish from real ones, and the discriminator continuously improves its ability to discriminate between real and synthesized images. 
+This iterative training process helps the generator network learn to generate high-quality output images that are visually consistent with the target images.
+\par
+The training process of the pix2pix generator and discriminator involves this iterative interplay, gradually improving the generator's ability to synthesize realistic output images and the discriminator's ability to distinguish between real and synthesized images.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.50\textwidth]{model/gen-training}
+    \caption{Generator training process}\label{fig:gen-training}
+    \includegraphics[width=0.50\textwidth]{model/dis-training}
+    \caption{Discriminator training process}\label{fig:dis-training}
+\end{figure}
+\subsection{User Interface}\label{subsec:user-interface}
+As a requirements of the project, a user interface was developed to allow the user to draw the input image.
+It was developed using the Python library Tkinter and it is composed by a window with a menu bar and a canvas where the user can draw.
 The menu bar consists of the following:
 \begin{itemize}
     \item \textbf{Colors}
@@ -260,17 +270,7 @@ The menu bar consists of the following:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{ui/ui}
-    \caption{User interface}
-    \label{fig:ui}
+    \caption{User interface}\label{fig:ui}
 \end{figure}
 Once the input is submitted, the application will show the output in the lower canvas.
 And save it in the \textit{output} folder.
-\section{Progettazione}
-\label{sec:progettazione}
-
-
-
-
-\section{Design Pattern utilizzati}
-
-\section{Codifica}

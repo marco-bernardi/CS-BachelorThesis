@@ -1,0 +1,98 @@
+\chapter{Verification and validation}
+\label{cap:verification-validation}
+\intro{
+    In this chapter we will discuss the verification and validation process of the trained model.
+    We will discuss the metrics used to evaluate the model and the results obtained.
+}
+\section{Metrics}
+\label{sec:metrics}
+\subsection{Loss function}
+\subsubsection{Discriminator loss}
+The discriminator loss function is a binary cross-entropy loss function.
+It is used to evaluate the discriminator's ability to distinguish between real and fake images.
+The discriminator loss function is defined as:
+\begin{equation}
+    \label{eq:discriminator-loss}
+    \mathcal{L}_{D} = -\mathbb{E}_{x \sim p_{data}(x)}[\log D(x)] - \mathbb{E}_{z \sim p_{z}(z)}[\log (1 - D(G(z)))]
+\end{equation}
+\subsubsection{Generator loss}
+The generator loss function is a binary cross-entropy loss function.
+It is used to evaluate the generator's ability to generate realistic images.
+The generator loss function is defined as:
+% pix2pix generator loss function
+\begin{equation}
+    \label{eq:generator-loss}
+    \mathcal{L}_{G} = -\mathbb{E}_{z \sim p_{z}(z)}[\log D(G(z))]
+\end{equation}
+
+
+\subsection{Evaluation metrics}
+\subsubsection{FID score}
+The FID score is a metric used to evaluate the quality of the generated images.
+It is based on the Fréchet Inception Distance (FID) \footcite{paper:heusel2017gans}.
+The FID score is defined as:
+\begin{equation}
+    \label{eq:fid-score}
+    FID = ||\mu_{r} - \mu_{g}||^{2}_{2} + Tr(\Sigma_{r} + \Sigma_{g} - 2(\Sigma_{r}\Sigma_{g})^{\frac{1}{2}})
+\end{equation}
+where $\mu_{r}$ and $\mu_{g}$ are the mean vectors of the real and generated images respectively, $\Sigma_{r}$ and $\Sigma_{g}$ are the covariance matrices of the real and generated images respectively.\\
+Lower FID scores indicate better quality images.
+\section{Results}
+\label{sec:results}
+\subsection{Evaluation metrics}
+During the training process, the evaluation metrics were calculated every 100 epochs.
+For get a more accurate result, the evaluation metrics were calculated using the same couple of image-mask for each epoch, generating ten images for each epoch.
+Each generated image was compared with the corresponding real image.
+\subsubsection{FID score}
+During the training process, the FID score was calculated every 100 epochs. 
+%Table for compare FID score
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Model} & \textbf{FID score} & \textbf{Epoch} \\
+        \hline
+        \hline
+        \textbf{M1} & 32,98 & 100 \\
+        \hline
+        \textbf{M2} & 26,42 & 200 \\
+        \hline
+        \textbf{M3} & 25,39 & 300 \\
+        \hline
+        \textbf{M4} & 22,29 & 400 \\
+        \hline
+        \textbf{M5} & 22,29 & 500 \\
+        \hline
+        \textbf{M6} & 22,29 & 600 \\
+    \end{tabular}
+    \caption{Mean FID score for each model}
+    \label{tab:fid-score}
+\end{table}
+According to the results obtained, the best model is the \textbf{M3} model.
+\subsubsection{Inception score}
+During the training process, the Inception score was calculated every 100 epochs.
+%Table for compare Inception score
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Model} & \textbf{Inception score} & \textbf{Epoch} \\
+        \hline
+        \hline
+        \textbf{M1} & 0,6589 & 100 \\
+        \hline
+        \textbf{M2} & 0,7461 & 200 \\
+        \hline
+        \textbf{M3} & 0,7596 & 300 \\
+        \hline
+        \textbf{M4} & 0,7435 & 400 \\
+        \hline
+        \textbf{M5} & 0,7005 & 500 \\
+        \hline
+        \textbf{M6} & 0,7362 & 600 \\
+    \end{tabular}
+    \caption{Mean Inception score for each model}
+    \label{tab:inception-score}
+\end{table}
+According to the results obtained, the best model is the \textbf{M3} model.
+
