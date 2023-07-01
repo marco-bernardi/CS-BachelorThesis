@@ -1,44 +1,63 @@
-\chapter{Verification and validation}
-\label{cap:verification-validation}
+\chapter{Verification and validation}\label{cap:verification-validation}
 \intro{
     In this chapter we will discuss the verification and validation process of the trained model.
     We will discuss the metrics used to evaluate the model and the results obtained.
 }
-\section{Metrics}
-\label{sec:metrics}
+\section{Metrics}\label{sec:metrics}
 \subsection{Loss function}
-\subsubsection{Discriminator loss}
-The discriminator loss function is a binary cross-entropy loss function.
-It is used to evaluate the discriminator's ability to distinguish between real and fake images.
-The discriminator loss function is defined as:
+According to the pix2pix paper \footcite{paper:pix2pix}, the loss function used is a combination of a conditional GAN loss and a L1 loss.
+In a general CGAN the objective function is defined as:
 \begin{equation}
-    \label{eq:discriminator-loss}
-    \mathcal{L}_{D} = -\mathbb{E}_{x \sim p_{data}(x)}[\log D(x)] - \mathbb{E}_{z \sim p_{z}(z)}[\log (1 - D(G(z)))]
+    \label{eq:cgan-loss}
+    L_{cGAN}(G, D) = \mathbb{E}_{x,y}[\log D(x, y)] + \mathbb{E}_{x,z}[\log(1 - D(x, G(x, z)))]
 \end{equation}
-\subsubsection{Generator loss}
-The generator loss function is a binary cross-entropy loss function.
-It is used to evaluate the generator's ability to generate realistic images.
-The generator loss function is defined as:
-% pix2pix generator loss function
+here $G$ tries to minimize this function against an adversarial $D$ that tries to maximize it.
+To assess the significance of conditioning the discriminator, we also compare it to an unconditional variant where the discriminator does not have access to the input x. 
+The loss function for this unconditional variant can be expressed as:
 \begin{equation}
-    \label{eq:generator-loss}
-    \mathcal{L}_{G} = -\mathbb{E}_{z \sim p_{z}(z)}[\log D(G(z))]
+    \label{eq:cgan-loss-uncond}
+    L_{cGAN}(G, D) = \mathbb{E}_{x,y}[\log D(y)] + \mathbb{E}_{x,z}[\log(1 - D(G(x, z)))]
 \end{equation}
+Previous studies have shown the advantages of incorporating a traditional loss, such as L2 distance \footcite{paper:DPathakCVPR16}, alongside the GAN objective. 
+While the discriminator's role remains unchanged, the generator is not only responsible for fooling the discriminator but also for producing outputs that closely resemble the ground truth in terms of L2 similarity. 
+Additionally, we explore an alternative option by employing L1 distance instead of L2, as L1 promotes reduced blurring:
+The L1 loss for the generator can be defined as:
+\begin{equation}
+    \label{eq:l1-loss}
+    L_{L1}(G) = \mathbb{E}_{x,y,z}\left[\left\|y - G(x, z)\right\|_1\right]
+\end{equation}
+Our ultimate objective is to find the optimal generator G that minimizes the loss function while simultaneously maximizing the performance of the discriminator D. 
+This objective can be represented by the equation:
+\begin{equation}
+    G^* = \arg \min_G \max_D \left( L_{cGAN}(G, D) + \lambda L_{L1}(G) \right)
+\end{equation}
+In previous conditional GAN approaches, the inclusion of Gaussian noise z alongside the input x was employed to prevent deterministic outputs and allow for the modeling of diverse distributions. 
+However, in our experiments, this strategy was found to be ineffective as the generator learned to ignore the noise, aligning with the findings of Mathieu et al. \footcite{paper:MMathieuICLR16}. 
+Instead, in our final models, we introduce noise through the use of dropout applied to multiple layers of the generator during both training and testing. 
+Despite the presence of dropout noise, we observe only minor stochasticity in the generated outputs. 
+The development of conditional GANs that can produce highly stochastic outputs, capturing the full entropy of the conditional distributions they model, remains an open and important question for future research.
+%\subsection{Evaluation metrics}
+%\subsubsection{\gls{FIDG} score}
+%The Fréchet Inception Distance (\gls{FIDG}\glsfirstoccur) score is a widely used metric for evaluating the quality of generated images in the field of generative adversarial networks (GANs) introduced by Martin Heusel et al. \footcite{paper:heusel2017gans}. 
+%It measures the similarity between the distribution of real images and the distribution of generated images by comparing their feature representations extracted from a pre-trained Inception-v3 network. 
+%A lower FID score indicates better similarity between the two distributions, suggesting higher-quality generated images that resemble the real data more closely. 
+%The FID score takes into account both the quality and diversity of generated images, making it a valuable metric for assessing the performance of GAN models. 
+%It provides a quantitative measure that complements visual inspection and subjective evaluation, enabling researchers to objectively compare and analyze different GAN architectures and training strategies.
+%The \gls{FIDG} score is defined as:
+%\begin{equation}
+%    \label{eq:fid-score}
+%    \text{FID}(p, q) = \|\mu_p - \mu_q\|^2 + \text{Tr}(\Sigma_p + \Sigma_q - 2(\Sigma_p\Sigma_q)^{1/2})
+%\end{equation}
+%Where:
+%\begin{itemize}
+%    \item $\mu_p$ and $\mu_q$ are the mean vectors of the real and generated images respectively.
+%    \item $\Sigma_p$ and $\Sigma_q$ are the covariance matrices of the real and generated images respectively.
+%    \item \text{Tr} is the trace operator.
+%    \item $\|\cdot\|$ is the Euclidean norm.
+%\end{itemize}
+%\subsubsection{Inception score}
 
-
-\subsection{Evaluation metrics}
-\subsubsection{FID score}
-The FID score is a metric used to evaluate the quality of the generated images.
-It is based on the Fréchet Inception Distance (FID) \footcite{paper:heusel2017gans}.
-The FID score is defined as:
-\begin{equation}
-    \label{eq:fid-score}
-    FID = ||\mu_{r} - \mu_{g}||^{2}_{2} + Tr(\Sigma_{r} + \Sigma_{g} - 2(\Sigma_{r}\Sigma_{g})^{\frac{1}{2}})
-\end{equation}
-where $\mu_{r}$ and $\mu_{g}$ are the mean vectors of the real and generated images respectively, $\Sigma_{r}$ and $\Sigma_{g}$ are the covariance matrices of the real and generated images respectively.\\
-Lower FID scores indicate better quality images.
-\section{Results}
-\label{sec:results}
+\section{Results}\label{sec:results}
 \subsection{Evaluation metrics}
 During the training process, the evaluation metrics were calculated every 100 epochs.
 For get a more accurate result, the evaluation metrics were calculated using the same couple of image-mask for each epoch, generating ten images for each epoch.
@@ -65,8 +84,7 @@ During the training process, the FID score was calculated every 100 epochs.
         \hline
         \textbf{M6} & 22,29 & 600 \\
     \end{tabular}
-    \caption{Mean FID score for each model}
-    \label{tab:fid-score}
+    \caption{Mean FID score for each model}\label{tab:fid-score}
 \end{table}
 According to the results obtained, the best model is the \textbf{M3} model.
 \subsubsection{Inception score}
@@ -91,8 +109,20 @@ During the training process, the Inception score was calculated every 100 epochs
         \hline
         \textbf{M6} & 0,7362 & 600 \\
     \end{tabular}
-    \caption{Mean Inception score for each model}
-    \label{tab:inception-score}
+    \caption{Mean Inception score for each model}\label{tab:inception-score}
 \end{table}
 According to the results obtained, the best model is the \textbf{M3} model.
 
+\section{Different Network Configurations}\label{sec:different-network-configurations}
+During the training process, a problem was encountered where the image quality started to deteriorate after a certain number of epochs. Upon analyzing the loss curve, it became evident that the discriminator's loss was decreasing rapidly. 
+This led me to believe that the discriminator was learning features at a faster rate than the generator.
+To address this issue, I made several adjustments to the network's hyper-parameters:
+\begin{itemize}
+    \item Initially, I started training with the standard configuration and disabled discriminator training after 140k steps to prevent it from surpassing the generator's performance. Unfortunately, this modification resulted in even worse outcomes.
+    \item I also experimented with disabling dropout on the three layers, suspecting that it might be responsible for the poor results and adversely affecting the model.
+    \item Another attempt involved training the model for 150k steps and reducing the discriminator's learning rate to 0.0001, instead of completely disabling its training. However, this approach also yielded unsatisfactory results.
+\end{itemize}
+Ultimately, it was discovered that the issue did not lie with the network's hyper-parameters, but rather with the training dataset itself.
+The training dataset posed a challenge as it was created through an unsupervised process, resulting in the inclusion of numerous low-quality images. Some of these images contained only white spots instead of a complete line representing a vein, which affected the overall image quality. Recognizing this issue, I took steps to address it by removing such problematic images from the dataset.
+
+As the training progressed and these flawed images were eliminated, the image quality gradually improved with each epoch. This suggests that the removal of these specific images played a crucial role in enhancing the overall performance and realism of the generated images.

@@ -1,116 +1,110 @@
 \chapter{Design and coding}\label{cap:design-coding}
-\intro{In this chapter we will describe the design and coding of the project.
-We will start by describing the technologies and tools used, then we will
-describe the software life cycle, the design and the design patterns used and
-finally we will describe the coding phase.}
-
+\intro{This chapter covers the project's design and coding, including the technologies and tools used, the software life cycle, and the coding phase.}
 
 \section{Technology and tools}\label{sec:technology-tools}
-In the following sections we will describe the technologies and tools used in
-the project.
-\subsection*{Python}\label{subsec:python}
-Python is a programming language that lets you work quickly and integrate
-systems more effectively. It is a high-level programming language, with
-applications in numerous areas, including web programming, scripting, scientific
-computing, and artificial intelligence. It is very popular and used by many
-companies, such as Google, Facebook, Instagram, Spotify, Netflix, Dropbox, and
-many others. It is also used in the development of many open source projects,
-such as Blender, GIMP, Inkscape, and many others. It is a very versatile
-language, with a very large community and a very large number of libraries
-available. It is also a very simple language to learn, with a very simple
-syntax, which makes it very readable and easy to understand. It is also a
-language that is constantly evolving, with new versions released every year,
-which makes it always up to date and with the latest technologies.
+In the subsequent sections, we will elucidate the technologies and tools employed within the project.
+\subsection{Python}\label{subsec:python}
+Python is a high-level programming language renowned for its simplicity, readability, and versatility. 
+It offers a clean and concise syntax, making it easy to understand and write code. 
+Python's extensive standard library and thriving community contribute to its vast ecosystem of third-party libraries and frameworks, empowering developers to accomplish a wide range of tasks efficiently. 
+From web development and scientific computing to data analysis and machine learning, Python excels in various domains. 
+Its object-oriented nature, dynamic typing, and automatic memory management contribute to its flexibility and ease of use. Furthermore, Python's cross-platform compatibility enables code portability across different operating systems. 
+With its consistent updates and improvements, Python continues to evolve, ensuring its relevance in the ever-changing landscape of software development.
 
-\subsection*{CUDA}\label{subsec:cuda}
-CUDA is a parallel computing platform and programming model developed by NVIDIA
-for general computing on graphical processing units (GPUs). With CUDA, developers
-are able to dramatically speed up computing applications by harnessing the power
-of GPUs. In GPU-accelerated applications, the sequential part of the workload
-runs on the CPU – which is optimized for single-threaded performance – while the
-compute intensive portion of the application runs on thousands of GPU cores in
-parallel. When using CUDA, developers program in popular languages such as C,
-C++, Fortran, Python and MATLAB and express parallelism through extensions in
-the form of a few basic keywords.
+%Python is a programming language that lets you work quickly and integrate
+%systems more effectively. It is a high-level programming language, with
+%applications in numerous areas, including web programming, scripting, scientific
+%computing, and artificial intelligence. It is very popular and used by many
+%companies, such as Google, Facebook, Instagram, Spotify, Netflix, Dropbox, and
+%many others. It is also used in the development of many open source projects,
+%such as Blender, GIMP, Inkscape, and many others. It is a very versatile
+%language, with a very large community and a very large number of libraries
+%available. It is also a very simple language to learn, with a very simple
+%syntax, which makes it very readable and easy to understand. It is also a
+%language that is constantly evolving, with new versions released every year,
+%which makes it always up to date and with the latest technologies.
 
-\subsection*{CuDNN}\label{subsec:cudnn}
-The NVIDIA CUDA® Deep Neural Network library (cuDNN) is a GPU-accelerated library
-of primitives for deep neural networks.
-cuDNN provides highly tuned implementations for standard routines such as forward and backward convolution,
-pooling, normalization, and activation layers. 
-cuDNN is part of the NVIDIA Deep Learning SDK.\@
-\subsection*{ML libraries}\label{subsec:mllib}
+\subsection{CUDA}\label{subsec:cuda}
+\gls{CUDAG}\glsfirstoccur (Compute Unified Device Architecture) is a parallel computing platform and API model developed by NVIDIA. 
+It allows developers to harness the computational power of NVIDIA \gls{GPUG}s\glsfirstoccur for general-purpose computing. 
+By utilizing \gls{CUDAG}, developers can offload computationally intensive tasks to the \gls{GPUG}, resulting in significant performance improvements. 
+\gls{CUDAG} provides a wide range of libraries and tools for efficient \gls{GPUG} programming, making it a standard for \gls{GPUG} computing in various industries and research fields. 
+With ongoing advancements, \gls{CUDAG} continues to empower developers to leverage \gls{GPUG} parallelism for faster and more efficient computations.
+
+\subsection{CuDNN}\label{subsec:cudnn}
+\gls{CuDNNG}\glsfirstoccur (CUDA Deep Neural Network) is a \gls{GPUG}-accelerated library developed by NVIDIA for deep learning tasks. 
+It provides optimized implementations of key neural network operations, such as convolutions and recurrent operations. 
+By leveraging \gls{CuDNNG}, developers can accelerate deep learning workflows, reducing training times and improving model performance. 
+It seamlessly integrates with popular deep learning frameworks and supports mixed-precision training. 
+CuDNN plays a crucial role in advancing deep learning research and applications by harnessing the power of \gls{GPUG} acceleration.
+
+\subsection{ML libraries}\label{subsec:mllib}
 \subsubsection*{TensorFlow}\label{subsubsec:tensorflow}
-TensorFlow is an end-to-end open source platform for machine learning. It has a
-comprehensive, flexible ecosystem of tools, libraries and community resources
-that lets researchers push the state-of-the-art in ML and developers easily
-build and deploy ML powered applications.
-\subsubsection*{PyTorch}\label{subsubsec:pytorch}
+TensorFlow is an open-source machine learning framework developed by Google. It provides a robust platform for building and deploying machine learning models. 
+With its computational graph abstraction, TensorFlow enables efficient execution of complex mathematical computations. 
+It offers a wide range of APIs and tools for different tasks, including model development, training, and deployment. 
+TensorFlow supports distributed computing, allowing for parallel processing across multiple devices. It integrates with various frameworks and libraries, making it versatile and interoperable. 
+TensorFlow is highly regarded for its scalability, flexibility, and extensive feature set, making it a popular choice among machine learning practitioners.
+\subsubsection{PyTorch}\label{subsubsec:pytorch}
 PyTorch is an open source machine learning library based on the Torch library,
 used for applications such as computer vision and natural language processing,
 primarily developed by Facebook's AI Research lab (FAIR). It is free and open
-source software released under the Modified BSD license. Although the Python
-interface is more polished and the primary focus of development, PyTorch also
-has a C++ interface.
-\subsubsection*{Keras}\label{subsubsec:keras}
-Keras is a high-level neural networks \gls{apig}, written in Python and capable of
-running on top of TensorFlow, CNTK, or Theano. It was developed with a focus on
-enabling fast experimentation. Being able to go from idea to result with the
-least possible delay is key to doing good research.
-\subsubsection*{OpenCV}\label{subsubsec:opencv}
-OpenCV (Open Source Computer Vision Library) is an open source computer vision
-and machine learning software library. OpenCV was built to provide a common
-infrastructure for computer vision applications and to accelerate the use of
-machine perception in the commercial products. Being a BSD-licensed product,    
-OpenCV makes it easy for businesses to utilize and modify the code. The library
-has more than 2500 optimized algorithms, which includes a comprehensive set of
-both classic and state-of-the-art computer vision and machine learning
-algorithms. These algorithms can be used to detect and recognize faces, identify
-objects, classify human actions in videos, track camera movements, track moving
-objects, extract 3D models of objects, produce 3D point clouds from stereo
-cameras, stitch images together to produce a high resolution image of an entire
-scene, find similar images from an image database, remove red eyes from images
-taken using flash, follow eye movements, recognize scenery and establish markers
-to overlay it with augmented reality, etc. OpenCV has more than 47 thousand
-people of user community and estimated number of downloads exceeding 18 million.
-The library is used extensively in companies, research groups and by governmental
-bodies.
-\subsection*{GANs Models}\label{subsec:gans-models}
-\subsubsection*{Pix2Pix}\footcite{paper:pix2pix}\label{subsubsec:pix2pix}
-Pix2Pix is a Generative Adversarial Network, or \gls{gang}, model designed for general
-purpose image-to-image translation. The model was trained and evaluated on a
-large dataset of paired images from the \textit{Berkeley Segmentation Dataset
-and Benchmark} and demonstrates a capability to generate plausible synthetic
-images for a variety of image-to-image translation tasks, such as converting
-daylight images to night.
+source software released under the Modified BSD license.
+PyTorch serves as the foundation for several deep learning software applications, including Tesla Autopilot, Uber's Pyro, Hugging Face's Transformers, PyTorch Lightning, and Catalyst. 
+It offers two prominent high-level capabilities: tensor computing, akin to NumPy, with enhanced acceleration through \gls{GPUG} utilization, and deep neural networks constructed on a tape-based automatic differentiation system. 
+These features enable efficient computation and facilitate the development of sophisticated machine learning models.
+\subsubsection{Keras}\label{subsubsec:keras}
+Keras is a sophisticated, Python-based high-level neural networks \gls{apig} that can be seamlessly integrated with popular deep learning framework such as TensorFlow. 
+It is specifically designed to facilitate rapid experimentation, allowing researchers and developers to quickly transition from conceptualizing ideas to obtaining meaningful results. 
+The framework's core principle is to minimize the time lag between ideation and outcome, thereby facilitating efficient and effective research endeavors.
+Prominent scientific organizations worldwide, including CERN, NASA, NIH, and others, rely on Keras for their research and applications. 
+\subsubsection{OpenCV}\label{subsubsec:opencv}
+OpenCV, short for Open Source Computer Vision, is a popular and widely-used open-source computer vision library. 
+It was initially developed by Intel in 1999 and later supported by Willow Garage and Itseez (now merged with Intel) before becoming a community-driven project. 
+OpenCV provides a vast collection of computer vision algorithms and tools, making it a go-to solution for developers and researchers working on various vision-related tasks.
 
-\subsubsection*{ESRGAN}\footcite{paper:esrgan}\label{subsubsec:esrgan}
-ESRGAN is an enhanced version of the \gls{esrgang} model, which is a Generative
-Adversarial Network, or \gls{gang}, model designed for general purpose
-image-to-image translation. The model was trained and evaluated on a large
-dataset of paired images from the DIV2K dataset and demonstrates a capability to
-generate plausible synthetic images for a variety of image-to-image translation
-tasks, such as converting low resolution images to high resolution.
+The primary goal of OpenCV is to provide a comprehensive and efficient infrastructure for computer vision applications. 
+It supports a wide range of programming languages, including C++, Python, Java, and MATLAB, making it accessible to developers from diverse backgrounds. 
+OpenCV offers a rich set of functions for image and video processing, feature detection and extraction, object recognition, camera calibration, and more.
 
-\subsubsection*{StyleGAN}\label{subsubsec:stylegan}
-StyleGAN is a Generative Adversarial Network, or \gls{gang}, model designed for
-general purpose image generation. The model was trained and evaluated on a large
-dataset of unpaired images from the Flickr-Faces-HQ dataset and demonstrates a
-capability to generate plausible synthetic images for a variety of image
-generation tasks, such as generating realistic human faces.
+One of the key strengths of OpenCV is its ability to leverage hardware acceleration, such as utilizing multicore CPUs and GPUs, to enhance performance. 
+This makes it suitable for real-time and resource-intensive applications, such as robotics, augmented reality, surveillance systems, and autonomous vehicles.
 
-\subsection*{Tools}\label{subsec:tools}
+The library encompasses a wide range of functionalities, including face detection and recognition, object identification, human action classification in videos, camera movement tracking, object motion tracking, 3D model extraction, generation of 3D point clouds from stereo cameras, image stitching for creating high-resolution panoramic images, similarity search in image databases, red-eye removal from flash photography, eye movement tracking, scene recognition, and marker establishment for augmented reality overlays, among others.
+
+\subsection{GANs Models}\label{subsec:gans-models}
+\subsubsection{Pix2Pix}\label{subsubsec:pix2pix}
+Pix2Pix\footcite{paper:pix2pix} is a popular deep learning model used for image-to-image translation tasks. It is based on a conditional generative adversarial network (\gls{gang}) architecture, which consists of a generator network and a discriminator network. 
+The Pix2Pix model aims to learn a mapping between an input image and an output image, where the output image is a transformed version of the input image according to a specific target domain.
+
+The model was trained and evaluated on a large dataset of paired images from the \textit{Berkeley Segmentation Dataset and Benchmark} and demonstrates a capability to generate plausible synthetic images for a variety of image-to-image translation tasks, such as converting daylight images to night.
+
+Pix2Pix has been successfully applied to various image translation tasks, such as converting grayscale images to color, generating realistic street scenes from semantic labels, transforming sketches into photorealistic images, and more.
+%\subsubsection*{ESRGAN}\label{subsubsec:esrgan}
+%ESRGAN\footcite{paper:esrgan} is an enhanced version of the \gls{esrgang} model, which is a Generative
+%Adversarial Network, or \gls{gang}, model designed for general purpose
+%image-to-image translation. The model was trained and evaluated on a large
+%dataset of paired images from the DIV2K dataset and demonstrates a capability to
+%generate plausible synthetic images for a variety of image-to-image translation
+%tasks, such as converting low resolution images to high resolution.
+
+\subsubsection{StyleGAN}\label{subsubsec:stylegan}
+StyleGAN is a highly versatile Generative Adversarial Network (\gls{gang}) model primarily developed for the purpose of general image generation. 
+Extensive training and evaluation of the model were conducted using a substantial dataset comprised of unpaired images sourced from the Flickr-Faces-HQ dataset. Through this rigorous training process, StyleGAN exhibits the ability to generate synthetic images that possess a remarkable level of plausibility across a wide range of image generation tasks. 
+Notably, the model excels in the generation of realistic human faces, showcasing its proficiency in capturing the intricate details and characteristics associated with facial features.
+
+\subsection{Tools}\label{subsec:tools}
 \subsubsection*{Visual Studio Code}\label{subsubsec:vscode}
 Visual Studio Code is a free source-code editor made by Microsoft for Windows,
 Linux and macOS.\@ Features include support for debugging, syntax highlighting,
 intelligent code completion, snippets, code refactoring, and embedded Git.
-\subsubsection*{Git}\label{subsubsec:git}
+\subsubsection{Git}\label{subsubsec:git}
 Git is a distributed version-control system for tracking changes in source code
 during software development. It is designed for coordinating work among
 programmers, but it can be used to track changes in any set of files. Its goals
 include speed, data integrity, and support for distributed, non-linear
 workflows.
-\subsubsection*{GitHub}\label{subsubsec:github}
+\subsubsection{GitHub}\label{subsubsec:github}
 GitHub is a global company that provides hosting for software development
 version control using Git. It is a subsidiary of Microsoft, which acquired the
 company in 2018 for \$7.5 billion. It offers all of the distributed version
@@ -118,30 +112,35 @@ control and source code management (SCM) functionality of Git as well as adding
 its own features. It provides access control and several collaboration features
 such as bug tracking, feature requests, task management, and wikis for every
 project.
-\subsubsection*{GIMP}\label{subsubsec:gimp}
+\subsubsection{GIMP}\label{subsubsec:gimp}
 GIMP is a free and open-source raster graphics editor used for image retouching
 and editing, free-form drawing, converting between different image formats, and
 more specialized tasks.
-\subsubsection*{Webex}\label{subsubsec:webex}
+\subsection{Adobe Photoshop}\label{subsec:adobe-photoshop}
+Adobe Photoshop, a widely recognized raster graphics editor, has been developed and published by Adobe Inc. for the Windows and macOS platforms. 
+Since its inception in 1988 by Thomas and John Knoll, Photoshop has established itself as the industry standard for raster graphics editing and digital art creation. 
+In a recent update, Adobe introduced a notable feature called "Generative Fill". 
+This feature incorporates a Generative AI model, enabling users to generate new content within an image, thereby expanding the creative possibilities and augmenting the editing capabilities of the software.
+\subsubsection{Webex}\label{subsubsec:webex}
 Webex is a video conferencing software developed by Cisco Systems. It is a
 cloud-based software that provides video conferencing, online meetings,
 screen-sharing, and webinars. It has a free version that allows up to 100
 participants, with a 50-minute time restriction. The paid version starts at
 \$13.50/month and allows up to 200 participants and unlimited meeting time.
-\subsubsection*{Outlook}\label{subsubsec:outlook}
+\subsubsection{Outlook}\label{subsubsec:outlook}
 Outlook is a personal information manager software system from Microsoft,
 available as a part of the Microsoft Office suite. Primarily an email
 application, it also includes a calendar, task manager, contact manager,
 note taking, journal, and web browsing.
 
-\subsection*{Hardware}\label{subsec:hardware}
-All the hardware used for the development of this project was provided by the
-company. The hardware used for the development of this project is listed below: \\
+\subsection{Hardware}\label{subsec:hardware}
+The company provided all the necessary hardware for the development of this project. 
+The hardware configuration utilized during the project is outlined as follows: \\
 \begin{itemize}
     \item \textbf{DELL Precision 7670}
     \begin{itemize}
         \item \textbf{CPU}: Intel Core i7-12850HX
-        \item \textbf{GPU}: NVIDIA Quadro RTX A2000 8GB GDDR6
+        \item \textbf{\gls{GPUG}}: NVIDIA Quadro RTX A2000 8GB GDDR6
         \item \textbf{RAM}: 32GB DDR4
         \item \textbf{Storage}: 512GB NVMe SSD
         \item \textbf{OS}: Windows 10 Pro 64-bit
@@ -149,7 +148,7 @@ company. The hardware used for the development of this project is listed below: 
     \item \textbf{DELL Precision 7520}
     \begin{itemize}
         \item \textbf{CPU}: Intel Core i7-6820HQ
-        \item \textbf{GPU}: NVIDIA Quadro M2200 4GB GDDR5
+        \item \textbf{\gls{GPUG}}: NVIDIA Quadro M2200 4GB GDDR5
         \item \textbf{RAM}: 16GB DDR4
         \item \textbf{Storage}: 512GB NVMe SSD
         \item \textbf{OS}: Windows 10 Pro 64-bit
@@ -157,10 +156,10 @@ company. The hardware used for the development of this project is listed below: 
 \end{itemize}
 \section{Final implementation}\label{sec:final-implementation}
 \subsection{Network Type}\label{subsec:network-type}
-For the final implementation of the project, the network type chosen was the Pix2Pix model.
+In the ultimate implementation of the project, the selected network type was the Pix2Pix model.
 \subsubsection{Pix2Pix in detail}\label{subsubsec:pix2pix-in-detail}
-Pix2Pix is a Generative Adversarial Network, or \gls{gang}, model designed for general purpose image-to-image translation.
-The two models are build as the following:
+Pix2Pix is a comprehensive Generative Adversarial Network (\gls{cgang}) model specifically designed for the purpose of image-to-image translation. 
+The Pix2Pix model comprises two distinct models, which are constructed as follows:
 \subsubsection{U-Net Generator}
 The generator follow the U-Net architecture, which is a convolutional neural network that
 consists of an encoder (down-sampler) and a decoder (up-sampler). The encoder downsamples the

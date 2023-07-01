@@ -1,21 +1,21 @@
 \chapter{Introduction}\label{cap:Introduction}
 \section{The company}
-Breton S.p.A is an Italian company specializing in the manufacturing and engineering of high-tech machinery and systems for various industries. \\
-Founded in 1963 by Marcello Toncelli, Breton has grown to become a global leader in the production of advanced industrial equipment. \\
-The company's headquarters are located in Castello di Godego, Italy, 
-and it operates multiple production facilities and subsidiaries worldwide.\\
-Breton is known for its cutting-edge technologies and innovative solutions, catering to sectors such as stone processing, metalworking, aerospace, automotive, and many more.
-Breton's product portfolio encompasses a wide range of machinery, meeting the demands of both small-scale workshops and large industrial enterprises.\\
-With a strong emphasis on research and development, Breton has made significant contributions to the advancement of automation and digitalization in various industries. The company continually invests in cutting-edge technologies, such as artificial intelligence, Internet of Things (\gls{iotg}), and machine learning, to provide state-of-the-art solutions to its customers.
-Furthermore, Breton places a high value on sustainability and eco-friendly practices. The company focuses on developing energy-efficient machinery, reducing waste generation, and promoting sustainable manufacturing processes.
+Breton S.p.A is an Italian company specialized in the design, engineering and production of machinery and advanced systems for various industries. 
+Established in 1963 by Marcello Toncelli, Breton gained international recognition as a leader in the production of cutting-edge industrial equipment. 
+The company's headquarters are located in Castello di Godego, Italy, with numerous production facilities and branches strategically located around the world. 
+Breton's experience spans multiple industries, including stone working, metal working, aerospace, automotive and more.
+Their extensive product portfolio includes a wide variety of machinery, catering for the needs of both small workshops and large industrial companies.
+With a strong focus on research and development, Breton has been instrumental in driving advances in automation and digitization within various industries.
+The company constantly invests in cutting-edge technologies such as the artificial intelligence, Internet of Things (\gls{iotg}\glsfirstoccur) and machine learning to provide cutting-edge solutions to its customers. 
+Also, Breton places a significant emphasis on sustainability and environmentally friendly practices. 
+Through the development of energy efficient machinery, waste reduction initiatives and the promotion of sustainability production processes, Breton actively contributes to a greener and more sustainable environment future.
 \subsection{Products and Services}
 \subsubsection{Products}
 Breton's product portfolio encompasses a wide range of machinery, including:
 \begin{itemize}
-    \item \textbf{CNC machines:} Breton's \gls{cncg} machines are designed to provide high precision and accuracy in machining operations. The company offers a wide range of CNC machines, including vertical machining centers, horizontal machining centers, and 5-axis machining centers.
+    \item \textbf{CNC machines:} Breton's \gls{cncg}\glsfirstoccur machines are designed to provide high precision and accuracy in machining operations. The company offers a wide range of CNC machines, including vertical machining centers, horizontal machining centers, and 5-axis machining centers.
     \item \textbf{Cutting and shaping systems:} Breton's cutting and shaping systems are designed to provide high precision and accuracy in cutting and shaping operations. The company offers a wide range of cutting and shaping systems, including waterjet cutting systems, laser cutting systems, plasma cutting systems, and wire cutting systems.
     \item \textbf{Polishing equipment:} Breton's polishing equipment is designed to provide high precision and accuracy in polishing operations. The company offers a wide range of polishing equipment, including polishing machines, polishing robots, and polishing systems.
-    \item \textbf{Waterjet cutting systems:} Breton's waterjet cutting systems are designed to provide high precision and accuracy in waterjet cutting operations. The company offers a wide range of waterjet cutting systems, including waterjet cutting machines, waterjet cutting robots, and waterjet cutting systems.
     \item \textbf{Robotic solutions:} Breton's robotic solutions are designed to provide high precision and accuracy in robotic operations. The company offers a wide range of robotic solutions, including robotic arms, robotic cells, and robotic systems.
     \item \textbf{Software:} Breton provides software solutions for the management of the productivity process, that can be fully integrated with the existing systems, for grant the best performance of the machinery and grant the control over the production plant.
 \end{itemize} 
@@ -36,32 +36,41 @@ The company is certified according to the following standards:
     \item \textbf{UNI INAIL ed. 2001:} Breton is certified according to the UNI INAIL ed. 2001 standard, which specifies requirements for a health and safety management system.
 \end{itemize}
 \section{The idea}
-The idea born from a company request, they want to extract the main features of a marble slab, such as the veins, texture, and colors for automatically create a digital fingerprint of the marble slab.\\
-This digital fingerprint can be easily achieved with a classic \gls{mlg} model. Veins in marble slabs are not always the same, and the marble slabs are not always perfect, so teach to a \gls{mlg} model what is and what is not a veins could be very challenging.\\
-For this reason it's needed a lot of images with the respective veins path for train the model, and this is not always possible for different reasons:
+The concept originated from a request made by the company aiming to extract key characteristics of a marble slab, including its veins, texture, and colors, in order to automatically generate a digital representation, or fingerprint, of the slab. 
+This digital fingerprint can be effectively created using a conventional machine learning (\gls{mlg}\glsfirstoccur) model. 
+However, accurately teaching the model to distinguish between veins and other features in marble slabs poses significant challenges, as the veins can vary and the slabs themselves are not always flawless.
+
+To address this issue, a substantial number of images depicting the veins' paths are required to train the model effectively. 
+However, obtaining such images is often problematic for various reasons:
 \begin{itemize}
-    \item Breton work only on test slabs, so they don't have a large amount of images. 
-    For solve this problem, they've to rely on the customers, and many times the customers don't want to share their images.
-    \item Manually extract the veins path from the images is very time consuming, and will take a lot of time and human resources.
+    \item The company Breton primarily works with test slabs and thus lacks a large collection of images.
+    \item Depending on customers for image contributions is not always feasible, as they may be unwilling to share their own images.
 \end{itemize}
-So the idea is to create a generative model that can generate a large amount of images with the respective veins path, and use this images for train the \gls{mlg} model.\\
+Manually extracting the veins' paths from images is an extremely time-consuming task that demands significant human resources. 
+Consequently, the proposed solution involves creating a generative model capable of producing a substantial quantity of images that include the respective veins' paths. 
+These generated images can then be utilized to train the machine learning model effectively.
 \subsection{Side Idea}
-From the main idea, born a side idea, that is to create a \gls{cncg} program from an image file.\\
-In this way they can recreate veins on technological stones slabs, by the use of a \gls{cncg} machine.\\
-This idea is very challenging, because convert an image file to a \gls{cncg} program is not a simple task, \gls{cncg} program is a list of instructions for the machine, and the image file is a matrix of pixels.\\
-For this reason, the side idea was reverted and become: `Generate a marble slab image from a \gls{cadg} model'.\\
-The \gls{gang} model need to be able to reproduce colors, textures and the veins should follow the path of the \gls{cadg} model.\\
-This is more feasible, the \gls{cadg} model can be easily converted to a \gls{cncg} program, and the \gls{cncg} program can be used for create a marble slab.
-\section{Objectives}
-The objectives of the project could be classified in tree main categories recognized by the following letters:
+Derived from the main concept, an ancillary idea emerged: the creation of a computer numerical control (\gls{cncg}\glsfirstoccur) program based on an image file. 
+This would enable the recreation of veins on engineered stone slabs using a \gls{cncg} machine. 
+However, implementing this idea presents considerable challenges, as converting an image file into a \gls{cncg} program is a complex task. 
+A \gls{cncg} program consists of a sequence of instructions for the machine, while an image file is composed of a matrix of pixels.
+
+Consequently, the ancillary idea was revised and transformed into the following: ``Generating a marble slab image from a computer-aided design (\gls{cadg}\glsfirstoccur) model``.
+This approach proves more viable, as the \gls{cadg} model can be readily converted into a \gls{cncg} program, which in turn can be utilized to fabricate a marble slab.
+
+To accomplish this, a generative adversarial network (\gls{gang}\glsfirstoccur) model is required. 
+The \gls{gang} model must possess the ability to accurately reproduce colors, textures, and veins that adhere to the path defined by the CAD model. 
+This approach offers increased feasibility, as the \gls{cadg} model can be easily transformed into a \gls{cncg} program, enabling the subsequent production of a marble slab.
+
+\section{Goals}\label{sec:goals}
+The goals of the project can be categorized into three main categories denoted by the following letters:
 \begin{itemize}
-    \item\textbf{M:} Mandatory objectives, that are the main objectives of the project and a request of the commissioning company.
-    \item\textbf{D:} Desirable objectives, that are the secondary objectives of the project, not necessary
-    for the commissioning company but that can give added value to the project.
-    \item\textbf{O:} Optional objectives, that are the optional objectives of the project.
+    \item\textbf{M:} Mandatory goals, which represent the primary objectives of the project and are explicitly required by the commissioning company.
+    \item\textbf{D:} Desirable goals, which serve as secondary objectives for the project and are not essential for the commissioning company but can add value to the overall outcome.
+    \item\textbf{O:} Optional goals, which are additional objectives for the project that may be pursued based on feasibility and available resources.
 \end{itemize}
-Each objectives can be identified by a unique code, that is composed by the letter of the category and a number that identify the objective.\\
-The objectives are listed in the following table:
+Each goal is assigned a unique code consisting of the category letter followed by a number that identifies the specific objective.
+The goals are listed in the following table:
 \begin{table}[H]
     \caption{Goals}\label{tab:goals}
     \centering
@@ -75,7 +84,7 @@ The objectives are listed in the following table:
         \hline
         M3 & Quality on the production of technological artifacts and on the documentation & M\\
         \hline
-        D1 & Development of a \gls{pocg} for generating marble images with a \gls{gang} model or similar technology & D\\
+        D1 & Development of a \gls{pocg}\glsfirstoccur for generating marble images with a \gls{gang} model or similar technology & D\\
         \hline
         D2 & Development of a \gls{pocg} for augmenting resolution of an image & D\\
         \hline
