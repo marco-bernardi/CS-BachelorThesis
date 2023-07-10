@@ -195,7 +195,7 @@ patch in an image is real or fake.
     \includegraphics[width=0.6\textwidth]{model/patch-gan}
     \caption{PatchGAN discriminator.}\label{fig:patchgan}
 \end{figure}
-Each value of the output matrix in fig.~\ref*{fig:patchgan} represents the probability of whether the corresponding image patch is real or it is artificially generated.
+Each value of the output matrix in fig.~\ref{fig:patchgan} represents the probability of whether the corresponding image patch is real or it is artificially generated.
 \subsubsection{TensorFlow implementation}
 The TensorFlow implementation of the PatchGAN discriminator is composed by the following layers (see figure~\ref{fig:dis-layer}):
 \begin{itemize}
@@ -240,7 +240,7 @@ This adversarial training process creates a feedback loop where the generator tr
 This iterative training process helps the generator network learn to generate high-quality output images that are visually consistent with the target images.
 \par
 The training process of the pix2pix generator and discriminator involves this iterative interplay, gradually improving the generator's ability to synthesize realistic output images and the discriminator's ability to distinguish between real and synthesized images.
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.50\textwidth]{model/gen-training}
     \caption{Generator training process}\label{fig:gen-training}
@@ -248,7 +248,7 @@ The training process of the pix2pix generator and discriminator involves this it
     \caption{Discriminator training process}\label{fig:dis-training}
 \end{figure}
 \subsection{User Interface}\label{subsec:user-interface}
-As a requirements of the project, a user interface was developed to allow the user to draw the input image.
+As a requirements of the project, a user interface (ref~\ref{fig:ui}) was developed to allow the user to draw the input image.
 It was developed using the Python library Tkinter and it is composed by a window with a menu bar and a canvas where the user can draw.
 The menu bar consists of the following:
 \begin{itemize}

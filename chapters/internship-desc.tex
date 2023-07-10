@@ -18,16 +18,16 @@ By addressing these questions, the project's requirements, goals, and a comprehe
 \section{Requirements \& Goals}
 \subsection{Requirements}
 \begin{itemize}
-    \item \textbf{Requirement 1}: The dataset used for training the \gls{gang} model must consist of high-quality images of marble slabs to ensure accurate representation;
-    \item \textbf{Requirement 2}: The model should possess the capability to generate realistic marble slab images based on given inputs, such as sketches or other forms of guidance;
-    \item \textbf{Requirement 3}: The generated images produced by the model should exhibit a high level of quality, comparable to real images of marble slabs, in terms of visual fidelity, texture, and details;
+    \item \textbf{Requirement 1}: The dataset used for training the \gls{gang} model must consist of high-quality images of compound stone slabs to ensure accurate representation;
+    \item \textbf{Requirement 2}: The model should possess the capability to generate realistic compound stone slab images based on given inputs, such as sketches or other forms of guidance;
+    \item \textbf{Requirement 3}: The generated images produced by the model should exhibit a high level of quality, comparable to real images of compound stone slabs, in terms of visual fidelity, texture, and details;
     \item \textbf{Requirement 4}: The generated images should be presented in real time, allowing for immediate visual feedback and preview during the image generation process.
 \end{itemize}
 \subsection{Goals}
 \begin{itemize}
-    \item \textbf{Goal 1}: Acquire a diverse and high-quality dataset of marble slab images that encompasses various patterns, colors, and textures to train the \gls{gang} model effectively;
-    \item \textbf{Goal 2}: Develop a \gls{gang} model that demonstrates the ability to generate accurate and visually appealing marble slab images from provided inputs, such as sketches or other relevant data;
-    \item \textbf{Goal 3}: Create a desktop application that employs the trained \gls{gang} model to generate marble slab images in real time, enabling users to preview the generated images promptly during the image generation process. 
+    \item \textbf{Goal 1}: Acquire a diverse and high-quality dataset of compound stone slab images that encompasses various patterns, colors, and textures to train the \gls{gang} model effectively;
+    \item \textbf{Goal 2}: Develop a \gls{gang} model that demonstrates the ability to generate accurate and visually appealing compound stone slab images from provided inputs, such as sketches or other relevant data;
+    \item \textbf{Goal 3}: Create a desktop application that employs the trained \gls{gang} model to generate compound stone slab images in real time, enabling users to preview the generated images promptly during the image generation process. 
     This application should provide an intuitive user interface for seamless interaction.
 \end{itemize}
 \section{Planning}
@@ -129,7 +129,7 @@ The primary challenge encountered during this phase pertained to the quality of 
 The machine's image acquisition functionality was not originally intended for use in a machine learning project, resulting in suboptimal image quality. 
 The images displayed variations in size, inconsistent backgrounds, and occasionally contained unwanted elements such as light reflections or machine shadows.
 \subsubsection{Solutions:}
-TTo address these challenges, the following measures were implemented:
+To address these challenges, the following measures were implemented:
 \begin{itemize}
     \item \textbf{Background Removal}: To eliminate extraneous elements from the images, a pre-trained machine learning model developed by Breton was employed. 
     This model, in conjunction with the OpenCV library, effectively identified and removed non-slab components from the images, focusing solely on the slabs themselves.
@@ -159,7 +159,9 @@ After that the following augmentation techniques were applied to the images:
     \item  \textbf{Random Flip}: Each image underwent a random horizontal flipping operation;
 \end{itemize}
 \subsubsection{Milestone:}
-Upon the conclusion of this period, the dataset comprised 7000 images of slabs, exhibiting diverse colors and textures.
+At the conclusion of the aforementioned period, the dataset consisted of a total of 7000 images depicting slabs, showcasing a wide range of colors and textures. 
+This accomplishment holds substantial significance, as the dataset has now attained a size that is deemed adequate for effectively training a network. 
+Consequently, employing this technique enables not only Breton but also any other company to augment their dataset and compensate for any inadequacies in terms of available images.
 
 \begin{figure}
     \centering
@@ -233,7 +235,7 @@ The specific configuration details of the network will be elaborated upon in Cha
 \subsubsection{Milestone:}
 Upon the conclusion of this period, the network demonstrated its capability to generate images of slabs exhibiting a diverse range of colors and textures (See~\ref*{fig:gen-images}).
 %list of img generated
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=.7\textwidth]{slabs/generated/amogus}
     \\

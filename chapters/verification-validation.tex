@@ -37,13 +37,13 @@ Instead, in our final models, we introduce noise through the use of dropout appl
 Despite the presence of dropout noise, we observe only minor stochasticity in the generated outputs. 
 The development of conditional GANs that can produce highly stochastic outputs, capturing the full entropy of the conditional distributions they model, remains an open and important question for future research.
 %\subsection{Evaluation metrics}
-%\subsubsection{\gls{FIDG} score}
-%The Fréchet Inception Distance (\gls{FIDG}\glsfirstoccur) score is a widely used metric for evaluating the quality of generated images in the field of generative adversarial networks (GANs) introduced by Martin Heusel et al. \footcite{paper:heusel2017gans}. 
+%\subsubsection{\gls{fidg} score}
+%The Fréchet Inception Distance (\gls{fidg}\glsfirstoccur) score is a widely used metric for evaluating the quality of generated images in the field of generative adversarial networks (GANs) introduced by Martin Heusel et al. \footcite{paper:heusel2017gans}. 
 %It measures the similarity between the distribution of real images and the distribution of generated images by comparing their feature representations extracted from a pre-trained Inception-v3 network. 
 %A lower FID score indicates better similarity between the two distributions, suggesting higher-quality generated images that resemble the real data more closely. 
 %The FID score takes into account both the quality and diversity of generated images, making it a valuable metric for assessing the performance of GAN models. 
 %It provides a quantitative measure that complements visual inspection and subjective evaluation, enabling researchers to objectively compare and analyze different GAN architectures and training strategies.
-%The \gls{FIDG} score is defined as:
+%The \gls{fidg} score is defined as:
 %\begin{equation}
 %    \label{eq:fid-score}
 %    \text{FID}(p, q) = \|\mu_p - \mu_q\|^2 + \text{Tr}(\Sigma_p + \Sigma_q - 2(\Sigma_p\Sigma_q)^{1/2})
