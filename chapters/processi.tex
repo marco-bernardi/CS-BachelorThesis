@@ -45,12 +45,12 @@ The training process concludes when the discriminator becomes incapable of disti
 
 This unique training approach of \gls{gang}s poses a significant challenge when it comes to objective evaluation and assessment. 
 Unlike traditional models that have objective functions to minimize or maximize, \gls{gang}s lack a definitive metric for gauging training progress and determining the absolute or relative performance of a \gls{gang} model solely based on loss. 
-This presents several complexities in various scenarios, such as selecting a final \gls{gang} model during training, showcasing the capabilities of a GAN through generated samples, comparing different \gls{gang} models, or comparing different hyperparameters for the same \gls{gang} model.
+This presents several complexities in various scenarios, such as selecting a final \gls{gang} model during training, showcasing the capabilities of a \gls{gang} through generated samples, comparing different \gls{gang} models, or comparing different hyperparameters for the same \gls{gang} model.
 
 To date, the most prevalent approach for evaluating \gls{gang}s involves a combination of qualitative and quantitative metrics that center around the quality and diversity of the generated samples.
 \subsection{Manual evaluation}
 \label{subsec:manual-evaluation}
-Manual evaluation often serves as a means of assessing GAN models through the visual inspection of generated samples. 
+Manual evaluation often serves as a means of assessing \gls{gang} models through the visual inspection of generated samples. 
 This evaluation method relies on human judgment to gauge the quality of a batch of generated samples, rendering it subjective in nature. 
 Although manual inspection is a straightforward approach to model evaluation, it entails several limitations. 
 Firstly, subjectivity is introduced due to the evaluator's biases towards the model and the data. Secondly, expertise in the specific domain of the data is required to effectively evaluate the samples. 
@@ -62,23 +62,23 @@ Furthermore, manual evaluation is time-consuming, imposing constraints on the nu
 Consequently, while manual evaluation provides an initial impression of a model's performance, it should not be solely relied upon for the final selection of a model. Fortunately, alternative and more objective evaluation methods have been proposed and embraced within the field.
 \subsection{Qualitative evaluation}
 \label{subsec:qualitative-evaluation}
-Qualitative evaluation plays a crucial role in assessing the visual quality and performance of GAN models. 
+Qualitative evaluation plays a crucial role in assessing the visual quality and performance of \gls{gang} models. 
 While subjective in nature, it provides valuable insights into various aspects of the generated samples, including their fidelity, coherence, diversity, and novelty. 
 Several commonly used metrics and evaluation techniques have been developed to facilitate qualitative assessment.
 \begin{itemize}
     \item \textbf{Nearest neighbors}: Nearest neighbors evaluation involves comparing the generated samples with real samples from the training dataset. 
-    By computing the similarity between the generated samples and their nearest neighbors in the real data space, evaluators can assess how well the GAN model captures the underlying distribution of the training data;
+    By computing the similarity between the generated samples and their nearest neighbors in the real data space, evaluators can assess how well the \gls{gang} model captures the underlying distribution of the training data;
     \item \textbf{Rapid Scene Categorization}\footcite{paper:ganeval}: aims to evaluate the ability of GAN-generated samples to be quickly recognized and categorized by human observers. 
     Evaluators assess how well the generated samples align with the expected scene categories and their visual characteristics. This evaluation metric provides insights into the semantic coherence and overall discriminability of the generated samples;
     \item \textbf{Rating and Preference judgement}\footcite{paper:stackadvnet}\footcite{paper:stackadvnet1}\footcite{paper:stackadvnet2}\footcite{paper:stackadvnet3}:
     involve human evaluators rating or ranking the quality of generated samples based on predefined criteria. 
     This qualitative evaluation method provides subjective assessments of visual quality, realism, and aesthetic appeal. 
     By gathering ratings or preference judgments from multiple evaluators, a collective assessment of the generated samples can be obtained;
-    \item \textbf{Mode Drop and Collapse}\footcite{paper:dropandcollapse}\footcite{paper:dropandcollapse2}: Mode drop and collapse refer to situations where the GAN model fails to generate samples representing all the diverse modes or aspects of the training data distribution. 
+    \item \textbf{Mode Drop and Collapse}\footcite{paper:dropandcollapse}\footcite{paper:dropandcollapse2}: Mode drop and collapse refer to situations where the \gls{gang} model fails to generate samples representing all the diverse modes or aspects of the training data distribution. 
     Evaluators visually inspect the generated samples to identify any mode drop, where certain modes or patterns are missing, or mode collapse, where the generated samples lack diversity and exhibit repetitive patterns. 
-    Assessing mode drop and collapse is crucial for evaluating the ability of GAN models to capture the full range of variations in the training data;
+    Assessing mode drop and collapse is crucial for evaluating the ability of \gls{gang} models to capture the full range of variations in the training data;
     \item \textbf{Network Internals}\footcite{paper:netint}\footcite{paper:netint1}\footcite{paper:netint2}\footcite{paper:netint3}\footcite{paper:netint4}\footcite{paper:netint5}: 
-    Analyzing the internal representations and activations of the GAN model's neural network can provide insights into the learning process and the generated samples' quality. 
+    Analyzing the internal representations and activations of the \gls{gang} model's neural network can provide insights into the learning process and the generated samples' quality. 
     Evaluators examine network internals, such as feature maps and intermediate layers, to gain a better understanding of how the GAN model generates and captures visual patterns;
 \end{itemize}
 The most used qualitative measure is a sort of manual inspection of images, called \emph{Rating and Preference judgement}.\\\\
@@ -92,9 +92,9 @@ Another downside of this method is that the human judges performance can improve
 \emph{\dots By learning from such feedback, annotators are better able to point out the flaws in generated images, giving a more pessimistic quality assessment\dots}\footcite{paper:ganeval}.\\\\
 \subsection{Quantitative evaluation}
 \label{subsec:quantitative-evaluation}
-In addition to qualitative evaluation, quantitative assessment provides a systematic and objective analysis of GAN models' performance. 
+In addition to qualitative evaluation, quantitative assessment provides a systematic and objective analysis of \gls{gang} models' performance. 
 These evaluation metrics aim to measure various aspects of the generated samples, including their diversity, fidelity, and similarity to the real data distribution. 
-By quantitatively evaluating GAN models, researchers can compare different models, assess the impact of hyperparameters, and track progress during training.
+By quantitatively evaluating \gls{gang} models, researchers can compare different models, assess the impact of hyperparameters, and track progress during training.
 Some of the most common quantitative measures are: Average log-likelihood, Coverage Metric, Inception Score, Modified Inception Score, Mode Score, AM Score, Fréchet Inception Distance, 
 Maximum Mean Discrepancy, The Wasserstein Distance, Birthday Paradox Test, Classifier Two-Sample Tests, Classification Performance, Boundary Distortion, 
 Number of Statistically-Different Bins, Image Retrieval Performance, Generative Adversarial Metric, Tournament Win Rate, Normalized Relative Discriminative Score, Adversarial Accuracy and Adversarial Divergence, 
@@ -150,16 +150,16 @@ The KL divergence is defined as:
 \end{equation}
 The Inception Score is a good measure of the quality of generated images, but it has some limitations.
 It is sensitive to dataset and classifier choice, lacks consideration of spatial coherence, may not detect mode collapse effectively, offers limited interpretability, and emphasizes high-quality samples. 
-Complementary metrics and qualitative assessments are essential for a comprehensive evaluation of GAN models.
+Complementary metrics and qualitative assessments are essential for a comprehensive evaluation of \gls{gang} models.
 \subsubsection{Frechet Inception Distance}
 \label{subsubsec:frechet-inception-distance}
 The Fréchet Inception Distance (\gls{fidg}\glsfirstoccur) score is a widely used metric for evaluating the quality of generated images in the field of generative adversarial networks (GANs) introduced by Martin Heusel et al. \footcite{paper:heusel2017gans}. 
 \\\\
-\emph{"FID performs well in terms of discriminability, robustness and computational efficiency [...] It has been shown that FID is consistent with human judgments and is more robust to noise than IS".}\footcite{paper:ganeval}\\\\
+\emph{"\gls{fidg} performs well in terms of discriminability, robustness and computational efficiency [...] It has been shown that \gls{fidg} is consistent with human judgments and is more robust to noise than \gls{ISG}".}\footcite{paper:ganeval}\\\\
 It measures the similarity between the distribution of real images and the distribution of generated images by comparing their feature representations extracted from a pre-trained Inception-v3 network\footcite{paper:inceptionv3}. 
-A lower FID score indicates better similarity between the two distributions, suggesting higher-quality generated images that resemble the real data more closely. 
-The FID score takes into account both the quality and diversity of generated images, making it a valuable metric for assessing the performance of GAN models. 
-It provides a quantitative measure that complements visual inspection and subjective evaluation, enabling researchers to objectively compare and analyze different GAN architectures and training strategies.
+A lower \gls{fidg} score indicates better similarity between the two distributions, suggesting higher-quality generated images that resemble the real data more closely. 
+The \gls{fidg} score takes into account both the quality and diversity of generated images, making it a valuable metric for assessing the performance of \gls{gang} models. 
+It provides a quantitative measure that complements visual inspection and subjective evaluation, enabling researchers to objectively compare and analyze different \gls{gang} architectures and training strategies.
 The \gls{fidg} score is defined as:
 \begin{equation}
     \label{eq:fid-score}
@@ -179,5 +179,5 @@ The evaluation of Generative Adversarial Networks (\gls{gang}s) presents challen
 Initially, a manual inspection of the generated images is recommended to assess the quality of the generator model. Subsequently, quantitative measures such as the Inception Score and the Frechet Inception Distance can be employed to evaluate the quality and diversity of the generated images. 
 It is important to note that there is no universally superior measure for \gls{gang} evaluation, as the selection of evaluation measures depends on the specific task and dataset at hand.\\\\
 \emph{
-    As of yet, there is no consensus regarding the best score. Different scores assess various aspects of the image generation process, and it is unlikely that a single score can cover all aspects. Nevertheless, some measures seem more plausible than others (e.g. FID score)
+    As of yet, there is no consensus regarding the best score. Different scores assess various aspects of the image generation process, and it is unlikely that a single score can cover all aspects. Nevertheless, some measures seem more plausible than others (e.g. \gls{fidg} score)
 }\footcite{paper:ganeval}

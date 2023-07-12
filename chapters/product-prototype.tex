@@ -25,14 +25,14 @@ With its consistent updates and improvements, Python continues to evolve, ensuri
 %which makes it always up to date and with the latest technologies.
 
 \subsection{CUDA}\label{subsec:cuda}
-\gls{CUDAG}\glsfirstoccur (Compute Unified Device Architecture) is a parallel computing platform and API model developed by NVIDIA. 
+\gls{CUDAG}\glsfirstoccur (Compute Unified Device Architecture) is a parallel computing platform and \gls{apig} model developed by NVIDIA. 
 It allows developers to harness the computational power of NVIDIA \gls{GPUG}s\glsfirstoccur for general-purpose computing. 
 By utilizing \gls{CUDAG}, developers can offload computationally intensive tasks to the \gls{GPUG}, resulting in significant performance improvements. 
 \gls{CUDAG} provides a wide range of libraries and tools for efficient \gls{GPUG} programming, making it a standard for \gls{GPUG} computing in various industries and research fields. 
 With ongoing advancements, \gls{CUDAG} continues to empower developers to leverage \gls{GPUG} parallelism for faster and more efficient computations.
 
 \subsection{CuDNN}\label{subsec:cudnn}
-\gls{CuDNNG}\glsfirstoccur (CUDA Deep Neural Network) is a \gls{GPUG}-accelerated library developed by NVIDIA for deep learning tasks. 
+\gls{CuDNNG}\glsfirstoccur (\gls{CUDAG} Deep Neural Network) is a \gls{GPUG}-accelerated library developed by NVIDIA for deep learning tasks. 
 It provides optimized implementations of key neural network operations, such as convolutions and recurrent operations. 
 By leveraging \gls{CuDNNG}, developers can accelerate deep learning workflows, reducing training times and improving model performance. 
 It seamlessly integrates with popular deep learning frameworks and supports mixed-precision training. 
@@ -42,13 +42,13 @@ CuDNN plays a crucial role in advancing deep learning research and applications 
 \subsubsection*{TensorFlow}\label{subsubsec:tensorflow}
 TensorFlow is an open-source machine learning framework developed by Google. It provides a robust platform for building and deploying machine learning models. 
 With its computational graph abstraction, TensorFlow enables efficient execution of complex mathematical computations. 
-It offers a wide range of APIs and tools for different tasks, including model development, training, and deployment. 
+It offers a wide range of \gls{apig}s and tools for different tasks, including model development, training, and deployment. 
 TensorFlow supports distributed computing, allowing for parallel processing across multiple devices. It integrates with various frameworks and libraries, making it versatile and interoperable. 
 TensorFlow is highly regarded for its scalability, flexibility, and extensive feature set, making it a popular choice among machine learning practitioners.
 \subsubsection{PyTorch}\label{subsubsec:pytorch}
 PyTorch is an open source machine learning library based on the Torch library,
 used for applications such as computer vision and natural language processing,
-primarily developed by Facebook's AI Research lab (FAIR). It is free and open
+primarily developed by Facebook's AI Research lab (\gls{FAIRG}\glsfirstoccur). It is free and open
 source software released under the Modified BSD license.
 PyTorch serves as the foundation for several deep learning software applications, including Tesla Autopilot, Uber's Pyro, Hugging Face's Transformers, PyTorch Lightning, and Catalyst. 
 It offers two prominent high-level capabilities: tensor computing, akin to NumPy, with enhanced acceleration through \gls{GPUG} utilization, and deep neural networks constructed on a tape-based automatic differentiation system. 
@@ -67,7 +67,7 @@ The primary goal of OpenCV is to provide a comprehensive and efficient infrastru
 It supports a wide range of programming languages, including C++, Python, Java, and MATLAB, making it accessible to developers from diverse backgrounds. 
 OpenCV offers a rich set of functions for image and video processing, feature detection and extraction, object recognition, camera calibration, and more.
 
-One of the key strengths of OpenCV is its ability to leverage hardware acceleration, such as utilizing multicore CPUs and GPUs, to enhance performance. 
+One of the key strengths of OpenCV is its ability to leverage hardware acceleration, such as utilizing multicore CPUs and \gls{GPUG}s, to enhance performance. 
 This makes it suitable for real-time and resource-intensive applications, such as robotics, augmented reality, surveillance systems, and autonomous vehicles.
 
 The library encompasses a wide range of functionalities, including face detection and recognition, object identification, human action classification in videos, camera movement tracking, object motion tracking, 3D model extraction, generation of 3D point clouds from stereo cameras, image stitching for creating high-resolution panoramic images, similarity search in image databases, red-eye removal from flash photography, eye movement tracking, scene recognition, and marker establishment for augmented reality overlays, among others.
@@ -108,7 +108,7 @@ workflows.
 GitHub is a global company that provides hosting for software development
 version control using Git. It is a subsidiary of Microsoft, which acquired the
 company in 2018 for \$7.5 billion. It offers all of the distributed version
-control and source code management (SCM) functionality of Git as well as adding
+control and source code management (\gls{SCMG}) functionality of Git as well as adding
 its own features. It provides access control and several collaboration features
 such as bug tracking, feature requests, task management, and wikis for every
 project.
@@ -139,7 +139,7 @@ The hardware configuration utilized during the project is outlined as follows: \
 \begin{itemize}
     \item \textbf{DELL Precision 7670}
     \begin{itemize}
-        \item \textbf{CPU}: Intel Core i7-12850HX
+        \item \textbf{\gls{CPUG}\glsfirstoccur}: Intel Core i7-12850HX
         \item \textbf{\gls{GPUG}}: NVIDIA Quadro RTX A2000 8GB GDDR6
         \item \textbf{RAM}: 32GB DDR4
         \item \textbf{Storage}: 512GB NVMe SSD
@@ -147,7 +147,7 @@ The hardware configuration utilized during the project is outlined as follows: \
     \end{itemize}
     \item \textbf{DELL Precision 7520}
     \begin{itemize}
-        \item \textbf{CPU}: Intel Core i7-6820HQ
+        \item \textbf{\gls{CPUG}}: Intel Core i7-6820HQ
         \item \textbf{\gls{GPUG}}: NVIDIA Quadro M2200 4GB GDDR5
         \item \textbf{RAM}: 16GB DDR4
         \item \textbf{Storage}: 512GB NVMe SSD
@@ -261,7 +261,7 @@ The menu bar consists of the following:
     \begin{itemize}
         \item \textbf{Clear canvas}: Undo the last action.
         \item \textbf{Generate Image}: Redo the last action.
-        \item \textbf{Load CAD}: Load a CAD file as input.
+        \item \textbf{Load CAD}: Load a \gls{cadg} file as input.
         \item \textbf{Load PNG/JPG}: Load a .PNG file as input.
         \item \textbf{Exit}: Exit the application.
     \end{itemize}

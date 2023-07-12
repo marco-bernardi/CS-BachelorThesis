@@ -32,28 +32,28 @@ In the following table we will show the goals achieved and the ones that are sti
 All the goals marked as achieved are fully implemented and tested.
 \textbf{D2} was tested but the results were not satisfactory, so it was decided to not implement it.
 \textbf{O2} was partially implemented, the model and the technologies are too young to be used in a manufacturing production environment.
-\subsection{CAD to GAN}\label{subsec:user-interface}
+\subsection{CAD to GAN}\label{subsec:cad-to-gan}
 \begin{figure}
     \centering
     \includegraphics[width=0.50\textwidth]{images/cad-to-gan/mask}
     \caption{CAD drawing}\label{fig:mask}
 \end{figure}
-The transformation from a CAD file (ref.~\ref{fig:cad-to-gan}) to the final image representation of a slab involved a series of steps aimed at producing a realistic output. 
-The objective was not only to preserve the visual characteristics and details of the CAD file's outlines but also to create an image that closely resembled a real slab.
+The transformation from a \gls{cadg} file (ref.~\ref{fig:cad-to-gan}) to the final image representation of a slab involved a series of steps aimed at producing a realistic output. 
+The objective was not only to preserve the visual characteristics and details of the \gls{cadg} file's outlines but also to create an image that closely resembled a real slab.
 
-Initially, the CAD file was converted into an image format, ensuring that the geometric information was accurately represented. 
-This conversion facilitated further processing and manipulation of the CAD data.
+Initially, the \gls{cadg} file was converted into an image format, ensuring that the geometric information was accurately represented. 
+This conversion facilitated further processing and manipulation of the \gls{cadg} data.
 
-Following the conversion, the image file was divided into smaller portions, each conforming to the input requirements of the GAN model, with dimensions set at 256 x 256 pixels. 
-By segmenting the image, we enabled the GAN model to process the data efficiently and generate high-quality results.
+Following the conversion, the image file was divided into smaller portions, each conforming to the input requirements of the \gls{gang} model, with dimensions set at 256 X 256 pixels. 
+By segmenting the image, we enabled the \gls{gang} model to process the data efficiently and generate high-quality results.
 
-Subsequently, the GAN model was applied to each segment, generating a set of individual images. 
+Subsequently, the \gls{gang} model was applied to each segment, generating a set of individual images. 
 These images captured various characteristics and textures associated with slabs, enhancing the realism of the final output.
 
 To create a cohesive representation of the slab, the individual images were carefully arranged and merged together. 
 Through meticulous alignment and blending techniques, the resulting composite image closely resembled a genuine slab, incorporating the appearance and details that one would expect from a real-world sample.
 
-By employing this comprehensive transformation pipeline, the CAD file was successfully translated into an input image that, when combined and processed by the GAN model, resulted in a realistic depiction of a slab. 
+By employing this comprehensive transformation pipeline, the \gls{cadg} file was successfully translated into an input image that, when combined and processed by the \gls{gang} model, resulted in a realistic depiction of a slab. 
 This process ensured that the final image conveyed the visual attributes and authenticity typically associated with real slabs.
 
 \begin{figure}

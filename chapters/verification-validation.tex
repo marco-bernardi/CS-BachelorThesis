@@ -5,8 +5,8 @@
 }
 \section{Metrics}\label{sec:metrics}
 \subsection{Loss function}
-According to the pix2pix paper \footcite{paper:pix2pix}, the loss function used is a combination of a conditional GAN loss and a L1 loss.
-In a general CGAN the objective function is defined as:
+According to the pix2pix paper \footcite{paper:pix2pix}, the loss function used is a combination of a conditional \gls{gang} loss and a L1 loss.
+In a general \gls{cgang} the objective function is defined as:
 \begin{equation}
     \label{eq:cgan-loss}
     L_{cGAN}(G, D) = \mathbb{E}_{x,y}[\log D(x, y)] + \mathbb{E}_{x,z}[\log(1 - D(x, G(x, z)))]
@@ -18,7 +18,7 @@ The loss function for this unconditional variant can be expressed as:
     \label{eq:cgan-loss-uncond}
     L_{cGAN}(G, D) = \mathbb{E}_{x,y}[\log D(y)] + \mathbb{E}_{x,z}[\log(1 - D(G(x, z)))]
 \end{equation}
-Previous studies have shown the advantages of incorporating a traditional loss, such as L2 distance \footcite{paper:DPathakCVPR16}, alongside the GAN objective. 
+Previous studies have shown the advantages of incorporating a traditional loss, such as L2 distance \footcite{paper:DPathakCVPR16}, alongside the \gls{gang} objective. 
 While the discriminator's role remains unchanged, the generator is not only responsible for fooling the discriminator but also for producing outputs that closely resemble the ground truth in terms of L2 similarity. 
 Additionally, we explore an alternative option by employing L1 distance instead of L2, as L1 promotes reduced blurring:
 The L1 loss for the generator can be defined as:
@@ -31,11 +31,11 @@ This objective can be represented by the equation:
 \begin{equation}
     G^* = \arg \min_G \max_D \left( L_{cGAN}(G, D) + \lambda L_{L1}(G) \right)
 \end{equation}
-In previous conditional GAN approaches, the inclusion of Gaussian noise z alongside the input x was employed to prevent deterministic outputs and allow for the modeling of diverse distributions. 
+In previous conditional \gls{gang} approaches, the inclusion of Gaussian noise z alongside the input x was employed to prevent deterministic outputs and allow for the modeling of diverse distributions. 
 However, in our experiments, this strategy was found to be ineffective as the generator learned to ignore the noise, aligning with the findings of Mathieu et al. \footcite{paper:MMathieuICLR16}. 
 Instead, in our final models, we introduce noise through the use of dropout applied to multiple layers of the generator during both training and testing. 
 Despite the presence of dropout noise, we observe only minor stochasticity in the generated outputs. 
-The development of conditional GANs that can produce highly stochastic outputs, capturing the full entropy of the conditional distributions they model, remains an open and important question for future research.
+The development of conditional \gls{gang}s that can produce highly stochastic outputs, capturing the full entropy of the conditional distributions they model, remains an open and important question for future research.
 %\subsection{Evaluation metrics}
 %\subsubsection{\gls{fidg} score}
 %The Fréchet Inception Distance (\gls{fidg}\glsfirstoccur) score is a widely used metric for evaluating the quality of generated images in the field of generative adversarial networks (GANs) introduced by Martin Heusel et al. \footcite{paper:heusel2017gans}. 
@@ -63,7 +63,7 @@ During the training process, the evaluation metrics were calculated every 100 ep
 For get a more accurate result, the evaluation metrics were calculated using the same couple of image-mask for each epoch, generating ten images for each epoch.
 Each generated image was compared with the corresponding real image.
 \subsubsection{FID score}
-During the training process, the FID score was calculated every 100 epochs. 
+During the training process, the \gls{fidg} score was calculated every 100 epochs. 
 %Table for compare FID score
 \begin{table}[H]
     \centering
@@ -84,7 +84,7 @@ During the training process, the FID score was calculated every 100 epochs.
         \hline
         \textbf{M6} & 22,29 & 600 \\
     \end{tabular}
-    \caption{Mean FID score for each model}\label{tab:fid-score}
+    \caption{Mean \gls{fidg} score for each model}\label{tab:fid-score}
 \end{table}
 According to the results obtained, the best model is the \textbf{M3} model.
 \subsubsection{Inception score}
